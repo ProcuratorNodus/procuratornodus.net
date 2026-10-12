@@ -26,6 +26,7 @@
     <nav aria-label="Page">
       <a href="#can">It can do that</a>
       <a href="#hammer">Hammer</a>
+      <a href="#igc">Example</a>
       <a href="#who">Who it's for</a>
       <a href="#status">Status</a>
       <a href="https://github.com/ProcuratorNodus">GitHub</a>
@@ -109,6 +110,27 @@
               <g class="app"><rect x="140" y="124" width="156" height="28" rx="6"/><text class="lbl" x="150" y="143">scheduling</text><g class="dots"><circle cx="258" cy="138" r="4" class="on"/><circle cx="272" cy="138" r="4" class="on"/><circle cx="286" cy="138" r="4"/></g></g>
             </svg>
             <figcaption>Filled dots: what this app has granted that account.</figcaption>
+          </figure>
+        </li>
+
+        <!-- several groups on one install -->
+        <li class="row">
+          <div class="say">
+            <h3>Several organisations. One install.</h3>
+            <p>Groups are how one PN instance hosts things that must not know about each other: separate companies, departments or brands. Each group has its own sign-in realm and its own users, roles decided per app, and its own data. Nothing crosses a group line unless both sides declare it, or one app calls another's API with a key scoped to exactly that.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 340 214" role="img" aria-label="Three separate dashed group boundaries, each holding its own users and applications, all standing on one core; a single scoped-key arrow links one application in the first group to one in the second">
+              <g class="group-box"><rect class="group" x="8" y="12" width="88" height="124" rx="10"/><text class="lbl muted" x="16" y="28">group A</text><g class="person sm"><circle cx="22" cy="44" r="5"/><path d="M13 60c0-6 4-10 9-10s9 4 9 10"/></g><text class="lbl tiny muted" x="36" y="52">own users</text><g class="app"><rect x="16" y="68" width="72" height="16" rx="4"/><text class="lbl tiny" x="52" y="79" text-anchor="middle">app</text></g><g class="app"><rect x="16" y="90" width="72" height="16" rx="4"/><text class="lbl tiny" x="52" y="101" text-anchor="middle">app</text></g><g class="app"><rect x="16" y="112" width="72" height="16" rx="4"/><text class="lbl tiny" x="52" y="123" text-anchor="middle">app</text></g></g>
+              <g class="group-box"><rect class="group" x="126" y="12" width="88" height="124" rx="10"/><text class="lbl muted" x="134" y="28">group B</text><g class="person sm"><circle cx="140" cy="44" r="5"/><path d="M131 60c0-6 4-10 9-10s9 4 9 10"/></g><text class="lbl tiny muted" x="154" y="52">own users</text><g class="app"><rect x="134" y="68" width="72" height="16" rx="4"/><text class="lbl tiny" x="170" y="79" text-anchor="middle">app</text></g><g class="app"><rect x="134" y="90" width="72" height="16" rx="4"/><text class="lbl tiny" x="170" y="101" text-anchor="middle">app</text></g></g>
+              <g class="group-box"><rect class="group" x="244" y="12" width="88" height="124" rx="10"/><text class="lbl muted" x="252" y="28">group C</text><g class="person sm"><circle cx="258" cy="44" r="5"/><path d="M249 60c0-6 4-10 9-10s9 4 9 10"/></g><text class="lbl tiny muted" x="272" y="52">own users</text><g class="app"><rect x="252" y="68" width="72" height="16" rx="4"/><text class="lbl tiny" x="288" y="79" text-anchor="middle">app</text></g><g class="app"><rect x="252" y="90" width="72" height="16" rx="4"/><text class="lbl tiny" x="288" y="101" text-anchor="middle">app</text></g><g class="app"><rect x="252" y="112" width="72" height="16" rx="4"/><text class="lbl tiny" x="288" y="123" text-anchor="middle">app</text></g></g>
+              <g class="keylink"><line x1="88" y1="76" x2="134" y2="76"/><circle cx="111" cy="76" r="4"/><line x1="115" y1="76" x2="121" y2="76"/><line x1="119" y1="76" x2="119" y2="79"/></g>
+              <text class="lbl tiny muted" x="111" y="66" text-anchor="middle">scoped key</text>
+              <g class="ln"><line x1="52" y1="136" x2="170" y2="190"/><line x1="170" y1="136" x2="170" y2="190"/><line x1="288" y1="136" x2="170" y2="190"/></g>
+              <circle class="core" cx="170" cy="190" r="18"/>
+              <text class="corelbl" x="170" y="194" text-anchor="middle">core</text>
+            </svg>
+            <figcaption>Each group: its own sign-in, users, roles and data. The only ways across a line are a declaration by both sides, or a key.</figcaption>
           </figure>
         </li>
 
@@ -512,18 +534,66 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
     </div>
   </section>
 
+  <!-- ─────────────── IGC EXAMPLE ─────────────── -->
+  <section class="band igc" id="igc" aria-labelledby="igc-h">
+    <div class="wrap">
+      <h2 id="igc-h">A whole company, included as the example.</h2>
+      <p class="intro">The release ships with a complete example stack: Imaginary Grocery Company, a fictional grocery and logistics business, declared as two groups on one install. Every declaration, model, view and seed file is in it, so you can read how an organisation is put together on PN and build yours the same way.</p>
+      <div class="igc-grid">
+        <figure class="vis">
+          <svg class="vg igc-vg" viewBox="0 0 360 236" role="img" aria-label="Two groups on one install: Internal Operations with five employee apps sharing one login, and Customer Services with the storefront and its own customer accounts; a scoped-key arrow carries availability from stock operations to the storefront; Postgres, MongoDB and a weather API feed combined views beneath">
+            <rect class="group" x="8" y="10" width="212" height="152" rx="10"/>
+            <text class="lbl muted" x="18" y="27">Internal Operations</text>
+            <g class="person sm"><circle cx="26" cy="46" r="5"/><path d="M17 62c0-6 4-10 9-10s9 4 9 10"/></g>
+            <text class="lbl tiny muted" x="40" y="54">one employee login, a role per app</text>
+            <g class="app"><rect x="18" y="72" width="92" height="18" rx="4"/><text class="lbl tiny" x="64" y="84" text-anchor="middle">employee portal</text></g>
+            <g class="app"><rect x="118" y="72" width="92" height="18" rx="4"/><text class="lbl tiny" x="164" y="84" text-anchor="middle">stock operations</text></g>
+            <g class="app"><rect x="18" y="98" width="92" height="18" rx="4"/><text class="lbl tiny" x="64" y="110" text-anchor="middle">transport dispatch</text></g>
+            <g class="app"><rect x="118" y="98" width="92" height="18" rx="4"/><text class="lbl tiny" x="164" y="110" text-anchor="middle">yard board</text></g>
+            <g class="app"><rect x="18" y="124" width="92" height="18" rx="4"/><text class="lbl tiny" x="64" y="136" text-anchor="middle">HR admin</text></g>
+            <rect class="group" x="240" y="10" width="112" height="152" rx="10"/>
+            <text class="lbl muted" x="250" y="27">Customer Services</text>
+            <g class="person sm"><circle cx="258" cy="46" r="5"/><path d="M249 62c0-6 4-10 9-10s9 4 9 10"/></g>
+            <text class="lbl tiny muted" x="272" y="54">customer accounts</text>
+            <g class="app"><rect x="250" y="72" width="92" height="18" rx="4"/><text class="lbl tiny" x="296" y="84" text-anchor="middle">storefront</text></g>
+            <g class="keylink"><line x1="210" y1="81" x2="250" y2="81"/><circle cx="226" cy="81" r="4"/><line x1="230" y1="81" x2="238" y2="81"/><line x1="236" y1="81" x2="236" y2="84"/></g>
+            <text class="lbl tiny muted" x="296" y="106" text-anchor="middle">availability arrives</text>
+            <text class="lbl tiny muted" x="296" y="117" text-anchor="middle">by scoped key</text>
+            <g class="ln"><line x1="70" y1="162" x2="70" y2="192"/><line x1="180" y1="162" x2="180" y2="192"/><line x1="296" y1="162" x2="296" y2="192"/></g>
+            <g class="src"><path d="M46 198 h48 v16 h-48z"/><ellipse cx="70" cy="198" rx="24" ry="5"/><ellipse cx="70" cy="214" rx="24" ry="5"/></g>
+            <text class="lbl tiny" x="70" y="232" text-anchor="middle">Postgres</text>
+            <g class="src"><path d="M156 196 h48 v22 h-48z"/><line x1="164" y1="204" x2="196" y2="204"/><line x1="164" y1="211" x2="190" y2="211"/></g>
+            <text class="lbl tiny" x="180" y="232" text-anchor="middle">MongoDB</text>
+            <g class="src"><rect x="268" y="197" width="56" height="20" rx="10"/></g>
+            <text class="lbl tiny" x="296" y="211" text-anchor="middle">weather api</text>
+            <text class="lbl tiny" x="296" y="232" text-anchor="middle">live</text>
+          </svg>
+          <figcaption>Two groups, seven app declarations, six combined views, one install.</figcaption>
+        </figure>
+        <ul class="igc-facts">
+          <li><strong>Inside the company</strong>An employee portal, stock operations, transport dispatch, a yard board and HR admin. One employee login across all of them, with a different role in each app and a separate session per app.</li>
+          <li><strong>Facing the public</strong>A customer storefront in its own group with its own customer accounts: catalog, availability, cart, checkout, orders. An employee who shops there is a customer there, nothing more.</li>
+          <li><strong>Data from three places</strong>Rows in Postgres, documents in MongoDB and a live weather API, combined into dashboards and boards for the portal, the stock desk, dispatch, the yard and the storefront.</li>
+          <li><strong>Across the line</strong>The storefront learns what is in stock through an API that stock operations exposes behind a scoped key. The two groups never share a database.</li>
+        </ul>
+      </div>
+      <p class="igc-note">This release already carries the shape of a real organisation, its internal tools and its public sites on one platform, and PN is being built to go further in that direction.</p>
+    </div>
+  </section>
+
   <!-- ─────────────── WHO IT'S FOR ─────────────── -->
   <section class="band who" id="who" aria-labelledby="who-h">
     <div class="wrap">
       <h2 id="who-h">Who it's for</h2>
+      <p class="intro">From a single box to an organisation with departments and a public face. The scale changes; the shape of the install does not.</p>
       <div class="who-grid">
         <article>
           <h3>The box in the closet</h3>
           <p>A home lab or automation machine running several tools. One sign-in for all of them, each tool kept apart from the rest, HTTPS handled, updates that roll themselves back, and a backup you can carry to the next box.</p>
         </article>
         <article>
-          <h3>The small company</h3>
-          <p>A customer app, an internal admin and an API, sharing one user base in one group. Customers and staff sign in to the same accounts with different rights per app, partners get keys, and none of the three can reach into another.</p>
+          <h3>The organisation</h3>
+          <p>Internal tools for staff in one group, customer sites in another, more groups for other departments or brands as they come. Staff sign in once with a different role in each tool, customers have their own accounts, partners get keys, and no group can reach into another. The example above is this shape.</p>
         </article>
         <article>
           <h3>The developer with an API</h3>

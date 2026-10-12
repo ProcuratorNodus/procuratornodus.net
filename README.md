@@ -1,6 +1,6 @@
 # Procurator Nodus
 
-Procurator Nodus (PN) is a self-hosted substrate that runs many applications on one server from a single core. It gives them identity and sign-in, data across several databases (including one query language, NodusQL, and federated reads across stores and HTTP APIs), secrets, APIs with keys and MCP access, serving with HTTPS, app starters, TypeScript and Python SDKs with live updates, sealed backups, stable error codes with a one-command lookup, and an admin console, while keeping every application isolated from the others. Hammer, a separate overwatch process, keeps watch on the whole instance.
+Procurator Nodus (PN) is a self-hosted substrate that runs many applications on one server from a single core. It gives them identity and sign-in, data across several databases (including one query language, NodusQL, and federated reads across stores and HTTP APIs), secrets, APIs with keys and MCP access, serving with HTTPS, app starters, TypeScript and Python SDKs with live updates, sealed backups, stable error codes with a one-command lookup, and an admin console, while keeping every application isolated from the others. Hammer, a separate overwatch process, keeps watch on the whole instance. One install can host several independent app groups, and the release includes a complete example stack (a fictional grocery and logistics company) declared as two groups.
 
 **Status:** pre-release, in active development.
 

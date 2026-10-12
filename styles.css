@@ -181,6 +181,15 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .swap li:last-child{border-bottom:1px solid var(--border)}
 .swap .was{color:var(--muted);font-weight:500}
 .swap .now{color:var(--text);line-height:1.5}
+.vg .person.sm circle,.vg .person.sm path{stroke-width:1.5}
+.vg .keylink line{stroke:var(--amber-fill);stroke-width:1.5}
+.vg .keylink circle{fill:var(--surface);stroke:var(--amber-fill);stroke-width:1.5}
+.igc-grid{display:grid;gap:28px;align-items:start}
+.igc-vg{max-width:30rem}
+.igc-facts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.igc-facts li{border-top:1px solid var(--border);padding-top:12px;color:var(--muted);line-height:1.55}
+.igc-facts strong{display:block;color:var(--text);margin-bottom:4px}
+.igc-note{font-size:1.1rem;color:var(--text);max-width:44rem;margin:32px 0 0;line-height:1.5;border-left:3px solid var(--amber-fill);padding-left:16px}
 .who-grid{display:grid;gap:24px}
 .who-grid article{border-left:3px solid var(--accent);padding-left:18px}
 .who-grid h3{margin:0 0 8px;font-size:1.25rem;letter-spacing:-.015em;line-height:1.2}
@@ -233,6 +242,7 @@ footer a{color:var(--text)}
   .hammer-grid{grid-template-columns:1.1fr 1fr}
   .swap li{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:baseline}
   .who-grid{grid-template-columns:repeat(3,1fr);gap:32px}
+  .igc-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px}
 }
 @media (min-width:64rem){
   .codegrid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
