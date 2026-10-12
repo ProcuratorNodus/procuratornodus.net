@@ -153,6 +153,39 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .codestack{display:grid;gap:16px}
 .row.wide .say{max-width:44rem}
 
+/* wrapping terminal (long prose output) · paired code panels */
+.term.wrap pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.term.wide{max-width:none}
+.codepair{display:grid;gap:16px}
+
+/* ── bands: errors · hammer · replaces · who ── */
+.band{padding:72px 0;border-top:1px solid var(--border)}
+.band p{color:var(--muted);max-width:36rem;margin:0 0 14px;line-height:1.6}
+.band .intro{max-width:40rem}
+.errors-grid{display:grid;gap:28px;align-items:start}
+.hammer{background:var(--elev)}
+.hammer-grid{display:grid;gap:32px;align-items:center}
+.hammer strong{color:var(--text)}
+.hammer-vis .vg{max-width:28rem}
+.vg .spokes circle{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
+.vg .watch line{stroke:var(--amber-fill);stroke-width:2;stroke-dasharray:3 4}
+.vg .watch circle{fill:var(--amber-fill)}
+.vg .guard{fill:var(--surface);stroke:var(--amber-fill);stroke-width:3}
+.vg .eye path{fill:none;stroke:var(--amber-fill);stroke-width:2}
+.vg .eye circle{fill:var(--surface);stroke:var(--amber-fill);stroke-width:2}
+.vg .eye .pupil{fill:var(--amber-fill);stroke:none}
+.vg .store path,.vg .store ellipse{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
+.vg .file path{fill:var(--surface);stroke:var(--accent);stroke-width:1.5;stroke-linejoin:round}
+.swap{list-style:none;margin:0;padding:0}
+.swap li{display:grid;gap:4px;padding:16px 0;border-top:1px solid var(--border)}
+.swap li:last-child{border-bottom:1px solid var(--border)}
+.swap .was{color:var(--muted);font-weight:500}
+.swap .now{color:var(--text);line-height:1.5}
+.who-grid{display:grid;gap:24px}
+.who-grid article{border-left:3px solid var(--accent);padding-left:18px}
+.who-grid h3{margin:0 0 8px;font-size:1.25rem;letter-spacing:-.015em;line-height:1.2}
+.who-grid p{margin:0;max-width:none}
+
 /* ── how ── */
 .how{padding:72px 0;border-top:1px solid var(--border)}
 .how-grid{display:grid;gap:32px}
@@ -195,6 +228,11 @@ footer a{color:var(--text)}
   .row{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:center;padding:44px 0}
   .row.wide{grid-template-columns:1fr;align-items:start}
   .how-grid{grid-template-columns:1.1fr 1fr;align-items:center}
+  .codepair{grid-template-columns:1fr 1fr}
+  .errors-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px}
+  .hammer-grid{grid-template-columns:1.1fr 1fr}
+  .swap li{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:baseline}
+  .who-grid{grid-template-columns:repeat(3,1fr);gap:32px}
 }
 @media (min-width:64rem){
   .codegrid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
