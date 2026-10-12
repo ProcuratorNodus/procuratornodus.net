@@ -1,37 +1,382 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap"><link rel="stylesheet" href="/styles.css">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <title>Procurator Nodus</title>
-<meta name="description" content="Procurator Nodus runs several applications on one server from a single core, with shared, managed capabilities and each application kept isolated. Coming soon, free and open source.">
-<meta property="og:title" content="Procurator Nodus"><meta property="og:description" content="One core. Many applications. Each kept apart."><meta property="og:type" content="website"><meta property="og:url" content="https://procuratornodus.net/">
-</head><body>
+<meta name="description" content="Procurator Nodus runs many applications on one server from a single core, with identity, data, secrets, APIs and serving as shared capabilities, and keeps every application walled off from the rest. Pre-release. Free and open source at release.">
+<meta property="og:title" content="Procurator Nodus">
+<meta property="og:description" content="Many applications. One process. Each kept apart.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://procuratornodus.net/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cinzel:wght@600;700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script>try{var t=localStorage.getItem('pn-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+</head>
+<body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="wrap"><a class="brand" href="/"><img src="favicon.svg" alt="" width="28" height="28">Procurator Nodus</a></div></header>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" width="28" height="28"><span>Procurator Nodus</span></a>
+    <nav aria-label="Page">
+      <a href="#can">It can do that</a>
+      <a href="#how">How it works</a>
+      <a href="#status">Status</a>
+      <a href="https://github.com/ProcuratorNodus">GitHub</a>
+      <button type="button" class="theme" id="theme" aria-label="Switch to dark theme" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path class="sun" d="M12 4.5V2m0 20v-2.5M4.5 12H2m20 0h-2.5M6.1 6.1 4.3 4.3m15.4 15.4-1.8-1.8M6.1 17.9l-1.8 1.8M19.7 4.3l-1.8 1.8M12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9Z"/><path class="moon" d="M20 14.5A8 8 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
 <main id="main">
-<div class="wrap">
-<div class="hero">
-<div><h1>One core.<span>Many applications.</span></h1>
-<p class="lede">Procurator Nodus is a self-hosted platform that runs your applications on one server, gives them shared, managed capabilities, and keeps every application apart.</p>
-<a class="btn" href="https://github.com/ProcuratorNodus">Watch the project on GitHub</a><span class="pill">Pre-release</span></div>
-<svg class="diagram" viewBox="0 0 400 400" role="img" aria-labelledby="dt dd"><title id="dt">Core and spokes</title><desc id="dd">A central core connected to six capability spokes: identity, data, secrets, APIs, network and admin.</desc><circle class="ring" cx="200" cy="200" r="135"/><line class="ln" x1="200" y1="200" x2="200.0" y2="65.0"/><line class="ln" x1="200" y1="200" x2="316.9" y2="132.5"/><line class="ln" x1="200" y1="200" x2="316.9" y2="267.5"/><line class="ln" x1="200" y1="200" x2="200.0" y2="335.0"/><line class="ln" x1="200" y1="200" x2="83.1" y2="267.5"/><line class="ln" x1="200" y1="200" x2="83.1" y2="132.5"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:0.0px;--dy:-135.0px;animation-delay:0.00s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:116.9px;--dy:-67.5px;animation-delay:0.55s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:116.9px;--dy:67.5px;animation-delay:1.10s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:0.0px;--dy:135.0px;animation-delay:1.65s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:-116.9px;--dy:67.5px;animation-delay:2.20s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:-116.9px;--dy:-67.5px;animation-delay:2.75s"/><circle class="core" cx="200" cy="200" r="40"/><text class="coretxt" x="200" y="205" text-anchor="middle">Core</text><circle class="node" cx="200.0" cy="65.0" r="26"/><text class="lbl" x="200.0" y="69.0">Identity</text><circle class="node" cx="316.9" cy="132.5" r="26"/><text class="lbl" x="316.9" y="136.5">Data</text><circle class="node" cx="316.9" cy="267.5" r="26"/><text class="lbl" x="316.9" y="271.5">Secrets</text><circle class="node" cx="200.0" cy="335.0" r="26"/><text class="lbl" x="200.0" y="339.0">APIs</text><circle class="node" cx="83.1" cy="267.5" r="26"/><text class="lbl" x="83.1" y="271.5">Network</text><circle class="node" cx="83.1" cy="132.5" r="26"/><text class="lbl" x="83.1" y="136.5">Admin</text></svg>
-</div>
-<section aria-labelledby="what"><h2 id="what">What it is</h2>
-<p class="intro">Build each application on the capabilities it needs. Run them side by side without letting them reach into one another.</p>
-<ul class="grid">
-<li class="card"><h3>Identity and sign-in</h3><p>Accounts, sessions and permissions, managed once and used by the applications you choose.</p></li>
-<li class="card"><h3>Data across databases</h3><p>Work with several databases through one consistent interface.</p></li>
-<li class="card"><h3>Secrets</h3><p>Keep credentials and keys in one managed place, handed only to the application that needs them.</p></li>
-<li class="card"><h3>APIs between applications</h3><p>Let applications offer and use each other's services on terms you set.</p></li>
-<li class="card"><h3>Network controls</h3><p>Decide what your applications can reach, and what can reach them.</p></li>
-<li class="card"><h3>An admin console</h3><p>Install, configure and watch everything from one place.</p></li>
-</ul></section>
-<section aria-labelledby="how"><div class="how"><div><h2 id="how">How it works</h2></div>
-<div><p>At the center is the <strong>core</strong>. It is the one thing you install, and it keeps applications separate from each other.</p>
-<p>Around it sit <strong>spokes</strong>. Each spoke provides one capability, such as sign-in, data or secrets. Applications use the spokes they need, and every request between parts passes through the core.</p>
-<p>You install one package, run a command-line setup, then manage the rest from the admin console.</p></div></div></section>
-<section aria-labelledby="status"><div class="status"><span class="badge">Pre-release</span><h2 id="status">Status</h2>
-<p class="intro" style="margin:0">Procurator Nodus is in active development and is not yet available to install. It will be released as free, open-source software under the Apache-2.0 license.</p>
-<p style="margin:0"><a href="https://github.com/ProcuratorNodus">Watch the project on GitHub</a> to hear when it arrives.</p></div></section>
-</div></main>
-<footer><div class="wrap"><span>&copy; 2026 Procurator Nodus contributors &middot; Apache-2.0</span><a href="https://github.com/ProcuratorNodus">GitHub</a></div></footer>
+
+  <!-- ─────────────── HERO: the knot ─────────────── -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1 id="h1" class="wordmark">Procurator Nodus</h1>
+        <p class="statement">Many applications.<br>One process.<br>Each kept apart.</p>
+        <p class="lede">A self-hosted substrate that runs all of your applications from one core, hands them identity, data, secrets, APIs and serving as shared capabilities, and never lets one application reach into another.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/ProcuratorNodus">Watch on GitHub</a>
+          <span class="pill">Pre-release</span>
+        </div>
+      </div>
+
+      <div class="knot" id="knot">
+        <svg class="knot-fallback" viewBox="0 0 64 64" role="img" aria-label="A trefoil knot drawn as a single looping line">
+          <path d="M32 40.2 35.56 39.98 39.03 39.34 42.32 38.28 45.35 36.86 48.03 35.11 50.3 33.1 52.11 30.89 53.42 28.57 54.2 26.2 54.43 23.88 54.13 21.69 53.3 19.7 51.99 17.99 50.25 16.63 48.12 15.67 45.68 15.17 43.02 15.13 40.2 15.6 37.32 16.56 34.47 18.01 31.72 19.92 29.16 22.24 26.87 24.92 24.9 27.9 23.31 31.09 22.13 34.42 21.4 37.8 21.12 41.13 21.29 44.33 21.9 47.3 22.9 49.97 24.26 52.27 25.92 54.12 27.81 55.49 29.87 56.32 32 56.6 34.13 56.32 36.19 55.49 38.08 54.12 39.74 52.27 41.1 49.97 42.1 47.3 42.71 44.33 42.88 41.13 42.6 37.8 41.87 34.42 40.69 31.09 39.1 27.9 37.13 24.92 34.84 22.24 32.28 19.92 29.53 18.01 26.68 16.56 23.8 15.6 20.98 15.13 18.32 15.17 15.88 15.67 13.75 16.63 12.01 17.99 10.7 19.7 9.87 21.69 9.57 23.88 9.8 26.2 10.58 28.57 11.89 30.89 13.7 33.1 15.97 35.11 18.65 36.86 21.68 38.28 24.97 39.34 28.44 39.98 32 40.2Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <canvas id="knot-canvas" class="knot-canvas" aria-hidden="true"></canvas>
+        <p class="knot-note">Nodus is Latin for knot. The tangle and the hub are the same points.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── IT CAN DO THAT ─────────────── -->
+  <section class="can" id="can" aria-labelledby="can-h">
+    <div class="wrap">
+      <h2 id="can-h" class="big">It can do that.</h2>
+      <p class="intro">Everything below is in the release we are building now. Short statements, no hedging. Each one is something you would otherwise assemble from three tools and a weekend.</p>
+
+      <ol class="ledger">
+
+        <!-- 1 · isolation -->
+        <li class="row">
+          <div class="say">
+            <h3>Several applications. One process. Each one walled off.</h3>
+            <p>A shop, a blog, an internal tool and an API can share one server and one core, and still none of them can see another's data, sessions or secrets. Isolation is how the system is built, not a setting you remember to turn on.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 180" role="img" aria-label="Four applications standing side by side inside one process, separated by walls, all connected downward to one core">
+              <rect class="frame" x="8" y="12" width="304" height="156" rx="12"/>
+              <text class="lbl muted" x="22" y="30">one process</text>
+              <g class="walls"><line x1="86" y1="40" x2="86" y2="122"/><line x1="156" y1="40" x2="156" y2="122"/><line x1="226" y1="40" x2="226" y2="122"/></g>
+              <g class="app"><rect x="22" y="42" width="56" height="70" rx="6"/><text class="lbl" x="50" y="60" text-anchor="middle">shop</text><line x1="32" y1="74" x2="68" y2="74"/><line x1="32" y1="84" x2="60" y2="84"/><line x1="32" y1="94" x2="64" y2="94"/></g>
+              <g class="app"><rect x="92" y="42" width="56" height="70" rx="6"/><text class="lbl" x="120" y="60" text-anchor="middle">blog</text><line x1="102" y1="74" x2="138" y2="74"/><line x1="102" y1="84" x2="128" y2="84"/><line x1="102" y1="94" x2="134" y2="94"/></g>
+              <g class="app"><rect x="162" y="42" width="56" height="70" rx="6"/><text class="lbl" x="190" y="60" text-anchor="middle">intranet</text><line x1="172" y1="74" x2="208" y2="74"/><line x1="172" y1="84" x2="198" y2="84"/><line x1="172" y1="94" x2="204" y2="94"/></g>
+              <g class="app"><rect x="232" y="42" width="56" height="70" rx="6"/><text class="lbl" x="260" y="60" text-anchor="middle">api</text><line x1="242" y1="74" x2="278" y2="74"/><line x1="242" y1="84" x2="268" y2="84"/><line x1="242" y1="94" x2="274" y2="94"/></g>
+              <g class="ln"><line x1="50" y1="112" x2="50" y2="132"/><line x1="120" y1="112" x2="120" y2="132"/><line x1="190" y1="112" x2="190" y2="132"/><line x1="260" y1="112" x2="260" y2="132"/></g>
+              <rect class="core" x="22" y="132" width="266" height="24" rx="6"/>
+              <text class="corelbl" x="155" y="148" text-anchor="middle">core</text>
+            </svg>
+          </figure>
+        </li>
+
+        <!-- 2 · group identity -->
+        <li class="row">
+          <div class="say">
+            <h3>One account signs in to every app in a group.</h3>
+            <p>Put related apps in a group and a person signs up once: same password, same second factor, one place to reset it. What that account may do is still decided app by app, and apps in other groups never learn the account exists.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 180" role="img" aria-label="One person connected to three applications inside a dotted group boundary; each application shows a different set of granted permissions">
+              <g class="person"><circle cx="46" cy="72" r="13"/><path d="M22 118c0-16 11-26 24-26s24 10 24 26"/></g>
+              <text class="lbl muted" x="46" y="140" text-anchor="middle">one account</text>
+              <rect class="group" x="124" y="14" width="186" height="156" rx="12"/>
+              <text class="lbl muted" x="296" y="32" text-anchor="end">one group</text>
+              <g class="ln"><path d="M72 76 C 100 76, 100 54, 140 54"/><path d="M72 84 C 100 84, 100 96, 140 96"/><path d="M72 92 C 100 92, 100 138, 140 138"/></g>
+              <g class="app"><rect x="140" y="40" width="156" height="28" rx="6"/><text class="lbl" x="150" y="59">employee portal</text><g class="dots"><circle cx="258" cy="54" r="4" class="on"/><circle cx="272" cy="54" r="4" class="on"/><circle cx="286" cy="54" r="4" class="on"/></g></g>
+              <g class="app"><rect x="140" y="82" width="156" height="28" rx="6"/><text class="lbl" x="150" y="101">warehouse tools</text><g class="dots"><circle cx="258" cy="96" r="4" class="on"/><circle cx="272" cy="96" r="4"/><circle cx="286" cy="96" r="4"/></g></g>
+              <g class="app"><rect x="140" y="124" width="156" height="28" rx="6"/><text class="lbl" x="150" y="143">scheduling</text><g class="dots"><circle cx="258" cy="138" r="4" class="on"/><circle cx="272" cy="138" r="4" class="on"/><circle cx="286" cy="138" r="4"/></g></g>
+            </svg>
+            <figcaption>Filled dots: what this app has granted that account.</figcaption>
+          </figure>
+        </li>
+
+        <!-- 3 · serve -->
+        <li class="row">
+          <div class="say">
+            <h3>A static site, a single-page app and a service written in anything, side by side. HTTPS included.</h3>
+            <p>Serve static files, route a single-page app, or stand a process in another language behind the built-in proxy. Certificates are issued and renewed for you. One place to configure all of it.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 180" role="img" aria-label="Three kinds of application feeding one serving layer that carries an HTTPS lock">
+              <g class="app"><rect x="14" y="20" width="90" height="40" rx="6"/><text class="lbl" x="59" y="38" text-anchor="middle">static site</text><text class="lbl muted" x="59" y="52" text-anchor="middle">files</text></g>
+              <g class="app"><rect x="115" y="20" width="90" height="40" rx="6"/><text class="lbl" x="160" y="38" text-anchor="middle">single-page app</text><text class="lbl muted" x="160" y="52" text-anchor="middle">routes</text></g>
+              <g class="app"><rect x="216" y="20" width="90" height="40" rx="6"/><text class="lbl" x="261" y="38" text-anchor="middle">any language</text><text class="lbl muted" x="261" y="52" text-anchor="middle">proxied</text></g>
+              <g class="ln"><path d="M59 60 V 80 Q 59 92 71 92 H 148"/><line x1="160" y1="60" x2="160" y2="104"/><path d="M261 60 V 80 Q 261 92 249 92 H 172"/></g>
+              <rect class="core" x="40" y="104" width="240" height="30" rx="8"/>
+              <text class="corelbl" x="150" y="124" text-anchor="middle">serve</text>
+              <g class="lock"><rect x="246" y="112" width="18" height="14" rx="3"/><path d="M249 112v-4a6 6 0 0 1 12 0v4"/></g>
+              <text class="lbl muted" x="160" y="160" text-anchor="middle">https, issued and renewed for you</text>
+            </svg>
+          </figure>
+        </li>
+
+        <!-- 4 · one model, several sources (code) -->
+        <li class="row wide">
+          <div class="say">
+            <h3>One data model, assembled from several places.</h3>
+            <p>Declare a model whose parts live in different stores: a row in Postgres, documents in MongoDB, a live field from someone else's HTTP API. Ask for one record and get one object back, already joined. Your code never learns which store held which piece.</p>
+          </div>
+          <div class="codegrid">
+            <figure class="code">
+              <figcaption><span>declare</span><em>illustrative</em></figcaption>
+<pre><code><span class="c">// three kinds of source</span>
+<span class="k">"adapters"</span>: {
+  <span class="k">"pg_main"</span>:      { <span class="k">"type"</span>: <span class="s">"postgres"</span>, <span class="k">"connection"</span>: <span class="s">"…"</span> },
+  <span class="k">"mongo_orders"</span>: { <span class="k">"type"</span>: <span class="s">"mongodb"</span>,  <span class="k">"connection"</span>: <span class="s">"…"</span> },
+  <span class="k">"carrier_api"</span>:  { <span class="k">"type"</span>: <span class="s">"rest"</span>,     <span class="k">"connection"</span>: <span class="s">"…"</span> }
+}
+
+<span class="c">// the app binds a resource to each, then declares a model</span>
+<span class="k">"resources"</span>: {
+  <span class="k">"customers"</span>: { <span class="k">"backing"</span>: { <span class="k">"adapter"</span>: <span class="s">"pg_main"</span> } },
+  <span class="k">"orders"</span>:    { <span class="k">"backing"</span>: { <span class="k">"adapter"</span>: <span class="s">"mongo_orders"</span> } },
+  <span class="k">"shipments"</span>: { <span class="k">"backing"</span>: { <span class="k">"adapter"</span>: <span class="s">"carrier_api"</span> } }
+},
+<span class="k">"data"</span>: { <span class="k">"models"</span>: {
+  <span class="k">"customers"</span>: {
+    <span class="k">"fields"</span>: {
+      <span class="k">"id"</span>:   { <span class="k">"type"</span>: <span class="s">"uuid"</span>, <span class="k">"primary"</span>: <span class="b">true</span> },
+      <span class="k">"name"</span>: { <span class="k">"type"</span>: <span class="s">"string"</span> },
+      <span class="k">"plan"</span>: { <span class="k">"type"</span>: <span class="s">"string"</span> }
+    },
+    <span class="k">"relationships"</span>: {
+      <span class="k">"orders"</span>:    { <span class="k">"type"</span>: <span class="s">"hasMany"</span>, <span class="k">"model"</span>: <span class="s">"orders"</span>,
+                     <span class="k">"foreignKey"</span>: <span class="s">"customerId"</span> },
+      <span class="k">"shipments"</span>: { <span class="k">"type"</span>: <span class="s">"hasMany"</span>, <span class="k">"model"</span>: <span class="s">"shipments"</span>,
+                     <span class="k">"foreignKey"</span>: <span class="s">"customerId"</span> }
+    }
+  }
+}}</code></pre>
+            </figure>
+            <div class="codestack">
+              <figure class="code">
+                <figcaption><span>ask once</span><em>illustrative</em></figcaption>
+<pre><code><span class="k2">const</span> customer = <span class="k2">await</span> pn.<span class="f">custom</span>(<span class="s">'data.get'</span>, {
+  resource: <span class="s">'customers'</span>,
+  query:    { where: { id: customerId } },
+  include:  [<span class="s">'orders'</span>, <span class="s">'shipments'</span>],
+})</code></pre>
+              </figure>
+              <figure class="code">
+                <figcaption><span>get one object back</span><em>illustrative</em></figcaption>
+<pre><code>{
+  <span class="k">"id"</span>: <span class="s">"…"</span>,
+  <span class="k">"name"</span>: <span class="s">"Northwind Bakery"</span>, <span class="c">// a Postgres row</span>
+  <span class="k">"plan"</span>: <span class="s">"team"</span>,
+  <span class="k">"orders"</span>: [ <span class="c">// MongoDB documents</span>
+    { <span class="k">"id"</span>: <span class="s">"…"</span>, <span class="k">"total"</span>: <span class="n">84.5</span>, <span class="k">"items"</span>: [ <span class="s">…</span> ] }
+  ],
+  <span class="k">"shipments"</span>: [ <span class="c">// live from the carrier's API</span>
+    { <span class="k">"carrier"</span>: <span class="s">"…"</span>, <span class="k">"status"</span>: <span class="s">"in_transit"</span> }
+  ]
+}</code></pre>
+              </figure>
+            </div>
+          </div>
+        </li>
+
+        <!-- 5 · federated -->
+        <li class="row">
+          <div class="say">
+            <h3>Ask once. Every source answers.</h3>
+            <p>A federated query fans out to several stores at the same time, feeds the result of one into the filter of the next, and returns a single answer that names which parts came back and which did not. The stores can be SQLite, Postgres, MySQL or MariaDB, SQL Server, MongoDB, Redis, Qdrant, or a plain HTTP API.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 200" role="img" aria-label="One query fanning out to three different data sources, one source feeding the next, and the results merging into a single answer with a status per part">
+              <rect class="qbox" x="10" y="84" width="64" height="32" rx="8"/>
+              <text class="lbl" x="42" y="104" text-anchor="middle">one query</text>
+              <g class="ln fan"><path d="M74 94 C 100 94, 100 40, 126 40"/><path d="M74 100 C 100 100, 100 100, 126 100"/><path d="M74 106 C 100 106, 100 160, 126 160"/></g>
+              <g class="src"><path d="M126 30 h58 v20 h-58z"/><ellipse cx="155" cy="30" rx="29" ry="6"/><ellipse cx="155" cy="50" rx="29" ry="6"/><text class="lbl" x="155" y="70" text-anchor="middle">Postgres</text></g>
+              <g class="src"><path d="M128 88 h54 v24 h-54z"/><line x1="136" y1="96" x2="172" y2="96"/><line x1="136" y1="103" x2="166" y2="103"/><text class="lbl" x="155" y="130" text-anchor="middle">MongoDB</text></g>
+              <g class="src"><rect x="126" y="150" width="58" height="22" rx="11"/><text class="lbl" x="155" y="165" text-anchor="middle">https api</text><text class="lbl muted" x="155" y="190" text-anchor="middle">someone else's</text></g>
+              <path class="ref" d="M184 44 C 206 44, 206 86, 184 92"/>
+              <g class="ln merge"><path d="M184 40 C 216 40, 216 92, 246 92"/><path d="M184 100 C 216 100, 216 100, 246 100"/><path d="M184 160 C 216 160, 216 108, 246 108"/></g>
+              <rect class="qbox" x="246" y="74" width="70" height="52" rx="8"/>
+              <text class="lbl" x="281" y="90" text-anchor="middle">one answer</text>
+              <g class="seg"><circle cx="262" cy="104" r="3" class="ok"/><text class="lbl tiny" x="270" y="107">rows</text><circle cx="262" cy="114" r="3" class="ok"/><text class="lbl tiny" x="270" y="117">docs</text><circle cx="262" cy="124" r="3" class="ok"/><text class="lbl tiny" x="270" y="127">live</text></g>
+            </svg>
+            <figcaption>The dotted arc is one source's result feeding the next one's filter. Each part of the answer carries its own status, so a slow or failed source never hides inside a good result.</figcaption>
+          </figure>
+        </li>
+
+        <!-- 6 · NodusQL -->
+        <li class="row">
+          <div class="say">
+            <h3>NodusQL. One query language for all of them.</h3>
+            <p>Write a statement once and PN turns it into the right form for the store underneath, whether that is a SQL table, a document collection or a vector index. Fields, operators, ordering and limits read the same everywhere. Name a store directly with <code>FROM mongo_orders.orders</code> when you want to.</p>
+          </div>
+          <figure class="code">
+            <figcaption><span>NodusQL</span><em>real syntax</em></figcaption>
+<pre><code><span class="k2">SELECT</span> id, total, status
+<span class="k2">FROM</span> orders
+<span class="k2">WHERE</span> status <span class="k2">IN</span> (<span class="s">'paid'</span>, <span class="s">'shipped'</span>)
+  <span class="k2">AND</span> total <span class="k2">BETWEEN</span> <span class="n">50</span> <span class="k2">AND</span> <span class="n">500</span>
+  <span class="k2">AND</span> tags <span class="k2">CONTAINS</span> <span class="s">'gift'</span>
+  <span class="k2">AND</span> shippedAt <span class="k2">IS PRESENT</span>
+<span class="k2">ORDER BY</span> placedAt <span class="k2">DESC</span>
+<span class="k2">LIMIT</span> <span class="n">20</span></code></pre>
+          </figure>
+        </li>
+
+        <!-- 7 · API builder -->
+        <li class="row">
+          <div class="say">
+            <h3>Turn an app into an API in four commands.</h3>
+            <p>Scaffold it, add an endpoint, deploy, mint a key. No server to write. The same endpoint answers over REST, through the SDK, and as a tool to AI assistants over MCP, each behind a key you issued and can revoke.</p>
+          </div>
+          <figure class="term">
+            <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn api</span></figcaption>
+<pre><code><span class="pr">$</span> pn api new orders --app=shop
+<span class="pr">$</span> pn api endpoint add orders list --read
+<span class="pr">$</span> pn api deploy orders
+<span class="pr">$</span> pn api key create orders --for=warehouse
+<span class="ok">✓</span> key issued <span class="dim">(shown once)</span>
+<span class="pr">$</span> <span class="cur"></span></code></pre>
+          </figure>
+        </li>
+
+        <!-- 8 · secrets + declared hosts -->
+        <li class="row">
+          <div class="say">
+            <h3>Secrets stay out of your code. Outbound calls go only where you said they would.</h3>
+            <p>An API names the secrets it needs and the hosts it will talk to, and that is the whole declaration. The value of a secret never appears in your repository. A call to a host you did not list is refused before it leaves.</p>
+          </div>
+          <figure class="code">
+            <figcaption><span>api.json</span><em>illustrative</em></figcaption>
+<pre><code><span class="k">"needs"</span>: {
+  <span class="k">"calls"</span>:   [<span class="s">"data.query"</span>],
+  <span class="k">"hosts"</span>:   [<span class="s">"api.carrier.example"</span>],
+  <span class="k">"secrets"</span>: { <span class="k">"CARRIER_TOKEN"</span>: [<span class="s">"api.carrier.example"</span>] }
+}
+<span class="c">// the token lives in the vault; this file only names it</span>
+<span class="c">// and binds it to the one host it may be sent to</span></code></pre>
+          </figure>
+        </li>
+
+        <!-- 9 · install -->
+        <li class="row">
+          <div class="say">
+            <h3>Install it. Answer the wizard. It is a service.</h3>
+            <p>The setup wizard writes the configuration and registers PN as a system service. The first start prints the link to the admin console, where you add capabilities, configure them and watch health. From the terminal, <code>pn status</code> and <code>pn doctor</code> tell you the same story.</p>
+          </div>
+          <figure class="term">
+            <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn</span></figcaption>
+<pre><code><span class="pr">$</span> pn init
+<b>Procurator Nodus — setup wizard</b>
+  <span class="ok">✓</span> Project directory  <span class="dim">~/procurator</span>
+  <span class="ok">✓</span> Process manager    <span class="dim">systemd</span>
+  <span class="ok">✓</span> Admin credentials  <span class="dim">configured</span>
+  <span class="ok">✓</span> Config written     <span class="dim">~/.pn/config.json</span>
+Setup complete. Run <span class="cy">pn start</span> to boot.
+<span class="pr">$</span> pn start
+<span class="dim">Starting Procurator Nodus...</span>
+<span class="ok">✓</span> Server started on port 7600
+  <span class="cy">Admin: http://localhost:7600/admin_…</span>
+<span class="pr">$</span> <span class="cur"></span></code></pre>
+          </figure>
+        </li>
+
+        <!-- 10 · update + rollback -->
+        <li class="row">
+          <div class="say">
+            <h3>Patch it with one command. If it does not come up healthy, it puts itself back.</h3>
+            <p><code>pn update</code> stages the new release, snapshots the old one, switches over and checks health. A failed check rolls the instance back to the release that was working, without waiting for you. <code>pn rollback</code> does the same on request.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 130" role="img" aria-label="A timeline from the current release to a patch to a health check; a passing check continues forward, a failing check loops back to the current release">
+              <g class="ln"><line x1="36" y1="64" x2="118" y2="64"/><line x1="142" y1="64" x2="196" y2="64"/><line x1="220" y1="64" x2="274" y2="64"/></g>
+              <circle class="node fill" cx="36" cy="64" r="10"/><text class="lbl" x="36" y="92" text-anchor="middle">current</text>
+              <circle class="node" cx="130" cy="64" r="10"/><text class="lbl" x="130" y="92" text-anchor="middle">patch</text>
+              <circle class="node amber" cx="208" cy="64" r="10"/><text class="lbl" x="208" y="92" text-anchor="middle">health check</text>
+              <circle class="node fill" cx="282" cy="64" r="8"/><text class="lbl" x="282" y="92" text-anchor="middle">new current</text>
+              <path class="back" d="M208 52 C 208 26, 36 26, 36 52"/>
+              <text class="lbl muted" x="122" y="18" text-anchor="middle">failed: back on its own</text>
+              <text class="lbl muted" x="245" y="116" text-anchor="middle">passed</text>
+            </svg>
+          </figure>
+        </li>
+
+        <!-- 11 · nothing phones home -->
+        <li class="row">
+          <div class="say">
+            <h3>Nothing phones home. Your users can take their data with them, or erase it.</h3>
+            <p>There is no analytics helper, no page-view call, nothing that reports back out of the box. Export and erasure are capabilities every application inherits, so the people using what you build keep rights over their own data without you writing a line.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 150" role="img" aria-label="An instance with an outbound tracking arrow struck through, beside a person holding export and erase controls">
+              <rect class="frame" x="14" y="26" width="130" height="98" rx="12"/>
+              <text class="lbl muted" x="79" y="48" text-anchor="middle">your instance</text>
+              <g class="app"><rect x="30" y="60" width="98" height="46" rx="6"/><text class="lbl" x="79" y="86" text-anchor="middle">no tracking</text></g>
+              <g class="no"><line x1="144" y1="83" x2="186" y2="83"/><circle cx="170" cy="83" r="12"/><line x1="162" y1="91" x2="178" y2="75"/></g>
+              <g class="person"><circle cx="232" cy="52" r="11"/><path d="M212 92c0-14 9-22 20-22s20 8 20 22"/></g>
+              <g class="btnish"><rect x="200" y="100" width="56" height="20" rx="10"/><text class="lbl" x="228" y="114" text-anchor="middle">export</text></g>
+              <g class="btnish"><rect x="260" y="100" width="50" height="20" rx="10"/><text class="lbl" x="285" y="114" text-anchor="middle">erase</text></g>
+              <text class="lbl muted" x="258" y="140" text-anchor="middle">theirs, always</text>
+            </svg>
+          </figure>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─────────────── HOW IT HOLDS TOGETHER ─────────────── -->
+  <section class="how" id="how" aria-labelledby="how-h">
+    <div class="wrap how-grid">
+      <div>
+        <h2 id="how-h">How it holds together</h2>
+        <p>At the center is the <strong>core</strong>. It is the one thing you install, and its job is to keep applications apart while letting them share what you choose.</p>
+        <p>Around it sit <strong>spokes</strong>. Each provides one capability: sign-in, data, secrets, serving, APIs, the admin console. An application uses the spokes it needs, and every request between parts passes through the core, so a spoke never reaches another spoke directly and an app never reaches another app.</p>
+        <p>You install one package, run a command-line setup, then manage the rest from the admin console. Adding a capability is an install. Adding an application is a declaration.</p>
+      </div>
+      <svg class="diagram" viewBox="0 0 400 400" role="img" aria-labelledby="dt dd"><title id="dt">Core and spokes</title><desc id="dd">A central core connected to six capability spokes: identity, data, secrets, APIs, network and admin.</desc><circle class="ring" cx="200" cy="200" r="135"/><line class="ln" x1="200" y1="200" x2="200.0" y2="65.0"/><line class="ln" x1="200" y1="200" x2="316.9" y2="132.5"/><line class="ln" x1="200" y1="200" x2="316.9" y2="267.5"/><line class="ln" x1="200" y1="200" x2="200.0" y2="335.0"/><line class="ln" x1="200" y1="200" x2="83.1" y2="267.5"/><line class="ln" x1="200" y1="200" x2="83.1" y2="132.5"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:0.0px;--dy:-135.0px;animation-delay:0.00s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:116.9px;--dy:-67.5px;animation-delay:0.55s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:116.9px;--dy:67.5px;animation-delay:1.10s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:0.0px;--dy:135.0px;animation-delay:1.65s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:-116.9px;--dy:67.5px;animation-delay:2.20s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:-116.9px;--dy:-67.5px;animation-delay:2.75s"/><circle class="core" cx="200" cy="200" r="40"/><text class="coretxt" x="200" y="205" text-anchor="middle">Core</text><circle class="node" cx="200.0" cy="65.0" r="26"/><text class="lbl" x="200.0" y="69.0">Identity</text><circle class="node" cx="316.9" cy="132.5" r="26"/><text class="lbl" x="316.9" y="136.5">Data</text><circle class="node" cx="316.9" cy="267.5" r="26"/><text class="lbl" x="316.9" y="271.5">Secrets</text><circle class="node" cx="200.0" cy="335.0" r="26"/><text class="lbl" x="200.0" y="339.0">APIs</text><circle class="node" cx="83.1" cy="267.5" r="26"/><text class="lbl" x="83.1" y="271.5">Network</text><circle class="node" cx="83.1" cy="132.5" r="26"/><text class="lbl" x="83.1" y="136.5">Admin</text></svg>
+    </div>
+  </section>
+
+  <!-- ─────────────── STATUS ─────────────── -->
+  <section class="status" id="status" aria-labelledby="status-h">
+    <div class="wrap">
+      <span class="badge">Pre-release</span>
+      <h2 id="status-h">Where it stands</h2>
+      <p class="intro">Procurator Nodus is in active development and is not yet available to install. At release it will be free and open source under the Apache-2.0 license.</p>
+      <p class="intro">This page is the pre-release preview. The official release will live at <a href="https://procuratornodus.com">procuratornodus.com</a>.</p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/ProcuratorNodus">Watch on GitHub</a>
+        <span class="small">to hear when it arrives.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 Procurator Nodus contributors &middot; Apache-2.0 &middot; <a href="https://github.com/ProcuratorNodus">GitHub</a></span>
+    <span>Pre-release preview. The official release will live at <a href="https://procuratornodus.com">procuratornodus.com</a>.</span>
+  </div>
+</footer>
+
 <script src="/main.js" defer></script>
-</body></html>
+</body>
+</html>
