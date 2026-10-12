@@ -11,6 +11,44 @@
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const prefersDark = matchMedia('(prefers-color-scheme: dark)');
+  root.classList.add('js');
+
+  /* ── Page menu (small screens) ─────────────────────────────────────── */
+  // Without JavaScript the button stays hidden and the list is simply visible.
+  const nav = document.getElementById('nav');
+  const menuBtn = document.getElementById('menu-btn');
+  const menu = document.getElementById('menu');
+  if (nav && menuBtn && menu) {
+    menuBtn.hidden = false;
+    const wide = matchMedia('(min-width: 60rem)');
+    const isOpen = () => nav.classList.contains('open');
+    function setOpen(open, returnFocus) {
+      nav.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      if (open) {
+        const first = menu.querySelector('a');
+        if (first) first.focus();
+      } else if (returnFocus) {
+        menuBtn.focus();
+      }
+    }
+    menuBtn.addEventListener('click', () => setOpen(!isOpen(), false));
+    menu.addEventListener('click', (e) => {
+      if (e.target.closest('a')) setOpen(false, false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) setOpen(false, true);
+    });
+    document.addEventListener('click', (e) => {
+      if (isOpen() && !nav.contains(e.target)) setOpen(false, false);
+    });
+    nav.addEventListener('focusout', (e) => {
+      if (isOpen() && e.relatedTarget && !nav.contains(e.relatedTarget)) setOpen(false, false);
+    });
+    wide.addEventListener('change', () => {
+      if (wide.matches) setOpen(false, false);
+    });
+  }
 
   /* ── Decorative motion gates ───────────────────────────────────────── */
   const motionTargets = '.diagram .pulse, .vg .fan path, .vg .merge path, .cur';
