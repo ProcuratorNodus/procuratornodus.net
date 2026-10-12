@@ -1,0 +1,61 @@
+:root{
+  --bg:#f8fafc;--surface:#fff;--border:#e2e8f0;--text:#0f172a;--muted:#475569;
+  --accent:#4338ca;--accent-fg:#fff;--amber:#b45309;--amber-fill:#f59e0b;--line:#a5b4fc;
+  --font:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --mono:ui-monospace,'Cascadia Code','Fira Code',monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c0a1f;--surface:#1a1744;--border:#312c6e;--text:#e0e7ff;--muted:#a5b0cc;
+  --accent:#818cf8;--accent-fg:#0c0a1f;--amber:#fbbf24;--amber-fill:#fbbf24;--line:#4f46e5;}}
+:root[data-theme="dark"]{--bg:#0c0a1f;--surface:#1a1744;--border:#312c6e;--text:#e0e7ff;--muted:#a5b0cc;--accent:#818cf8;--accent-fg:#0c0a1f;--amber:#fbbf24;--amber-fill:#fbbf24;--line:#4f46e5}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.0625rem/1.65 var(--font);overflow-x:hidden}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--amber-fill);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--accent);color:var(--accent-fg);padding:8px 14px;border-radius:6px;z-index:9}
+.skip:focus{top:12px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 16px}
+header.top{padding:20px 0}
+.brand{font-weight:700;font-size:1.05rem;letter-spacing:.01em;display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none}
+.brand img{width:28px;height:28px}
+.hero{display:grid;gap:24px;padding:24px 0 72px;align-items:center}
+h1{font-size:clamp(2.6rem,9vw,5.2rem);line-height:.98;letter-spacing:-.035em;font-weight:800;margin:0 0 20px}
+h1 span{display:block;color:var(--accent)}
+.lede{font-size:clamp(1.15rem,3vw,1.4rem);line-height:1.5;color:var(--muted);max-width:32rem;margin:0 0 28px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-weight:600;text-decoration:none}
+.btn:hover{filter:brightness(1.1)}
+.pill{display:inline-block;margin-left:14px;color:var(--amber);font-weight:600;font-size:.95rem}
+.diagram{width:100%;max-width:30rem;height:auto;margin:0 auto;display:block}
+.diagram .ln{stroke:var(--line);stroke-width:1.5}
+.diagram .ring{fill:none;stroke:var(--border);stroke-width:1.5;stroke-dasharray:4 6}
+.diagram .core{fill:var(--accent)}
+.diagram .coretxt{fill:var(--accent-fg);font:700 15px var(--font)}
+.diagram .node{fill:var(--surface);stroke:var(--amber-fill);stroke-width:2}
+.diagram .lbl{fill:var(--text);font:600 13px var(--font);text-anchor:middle}
+.diagram .pulse{fill:var(--amber-fill);opacity:0}
+.diagram .pulse.on{animation:go 3.6s ease-in-out infinite}
+@keyframes go{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
+section{padding:56px 0;border-top:1px solid var(--border)}
+h2{font-size:clamp(1.7rem,5vw,2.4rem);line-height:1.1;letter-spacing:-.02em;margin:0 0 12px;font-weight:700}
+.intro{color:var(--muted);max-width:38rem;margin:0 0 32px}
+.grid{display:grid;gap:16px;grid-template-columns:1fr;padding:0;margin:0;list-style:none}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px}
+.card:nth-child(2n){border-radius:14px 28px 14px 28px}
+.card h3{margin:0 0 6px;font-size:1.15rem}
+.card p{margin:0;color:var(--muted);font-size:1rem}
+.how{display:grid;gap:28px}
+.how p{max-width:38rem;margin:0 0 14px}
+.how strong{color:var(--accent)}
+.status{display:grid;gap:12px}
+.badge{font-family:var(--mono);font-size:.9rem;color:var(--amber);border:1px solid currentColor;border-radius:999px;padding:3px 12px;justify-self:start}
+footer{border-top:1px solid var(--border);padding:28px 0 40px;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between}
+.notfound{min-height:70vh;display:grid;align-content:center;gap:16px}
+@media(min-width:44rem){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .hero{grid-template-columns:1.1fr 1fr;gap:40px;padding-top:56px}
+  .how{grid-template-columns:1fr 1fr;align-items:start}
+}
+@media(min-width:64rem){.grid.g3{grid-template-columns:repeat(3,1fr)}}
+@media(prefers-reduced-motion:reduce){.diagram .pulse{display:none}*{scroll-behavior:auto!important}}
