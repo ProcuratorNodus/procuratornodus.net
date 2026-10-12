@@ -433,19 +433,19 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
       </div>
       <figure class="term wrap wide">
         <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn errors</span></figcaption>
-<pre><code><span class="pr">$</span> pn errors lookup DATA_026
-<b>DATA_026</b>   <span class="dim">data • data</span>
-  Model not found in this app's resolved set
-  <span class="dim">severity: error   http: 404   recoverable: no</span>
+<pre><code><span class="pr">$</span> pn errors lookup SERVE_028
+<b>SERVE_028</b>   <span class="dim">serve • config</span>
+  spa handler requires `root` — set `root` to the filesystem path of the SPA build output
+  <span class="dim">severity: error   http: 400   recoverable: no</span>
 
   <b>CAUSE</b>
-    A data.models.describe call supplied a name filter that does not match any model in the calling app's resolved brief. The app's brief.models map is authoritative — a model absent from the map is not accessible to this app regardless of what is registered in the system-tier registry.
+    A serve route was registered with `spa: true` but no `root` field. The SPA handler must serve files from a filesystem root.
 
   <b>REMEDIATION</b>
-    Use data.models.describe without a name filter to list all models available to the app, then select from that set. Confirm the model was declared in the app's data.models config block and that the data brief resolver ran successfully at boot.
+    Set `root` to the filesystem path of the SPA build output (e.g., `/var/www/app/dist`), in addition to `spa: true`.
 
   <b>HINT</b>
-    DATA_026 fails closed rather than returning an empty 200 so that a caller typo is immediately visible. Contrast DATA_025 (missing app context entirely).
+    The spa handler is a static-file server with single-page-app fallback rewriting; it requires a `root` to serve from. …
 <span class="pr">$</span> <span class="cur"></span></code></pre>
       </figure>
     </div>
