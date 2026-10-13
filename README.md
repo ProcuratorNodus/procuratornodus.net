@@ -6,7 +6,7 @@ Procurator Nodus (PN) is a self-hosted substrate that runs many applications on 
 
 **License:** PN will be released as free, open-source software under the Apache-2.0 license. This repository holds only the pre-release landing page, also under Apache-2.0.
 
-**This site** is the pre-release preview at https://procuratornodus.net. The official release will live at https://procuratornodus.com.
+**This site** is the project’s official home at https://procuratornodus.com, currently a pre-release preview. The release, documentation and install steps will be published there.
 
 Static files only: `index.html`, `styles.css`, `main.js`, `favicon.svg`, `404.html`. No build step, no frameworks, no analytics. The only external request is the Google Fonts stylesheet. The hero knot is drawn on a 2D canvas in vanilla JavaScript and falls back to an inline SVG without JavaScript; with reduced motion it renders one still frame.
 
