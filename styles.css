@@ -205,6 +205,8 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .who-grid article{border-left:3px solid var(--accent);padding-left:18px}
 .who-grid h3{margin:0 0 8px;font-size:1.25rem;letter-spacing:-.015em;line-height:1.2}
 .who-grid p{margin:0;max-width:none}
+.who-grid ul{margin:0;padding-left:1.1em}
+.who-grid li{margin:.35em 0;line-height:1.45}
 
 /* ── how ── */
 .how{padding:72px 0;border-top:1px solid var(--border)}

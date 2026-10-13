@@ -11,9 +11,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://procuratornodus.com/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Cinzel:wght@600;700&display=swap">
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="styles.css">
 <script>try{var t=localStorage.getItem('pn-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
@@ -33,6 +31,7 @@
         <li><a href="#hammer">Hammer</a></li>
         <li><a href="#igc">The example</a></li>
         <li><a href="#who">Who it's for</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
         <li><a href="#status">Status</a></li>
         <li><a href="https://github.com/ProcuratorNodus">GitHub</a></li>
       </ul>
@@ -409,6 +408,31 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
           </figure>
         </li>
 
+        <!-- 9b · install positions -->
+        <li class="row">
+          <div class="say">
+            <h3>On one machine, on your own network, or on the open web.</h3>
+            <p>Install PN for the machine it runs on, for a home or office network, or for public sites. On one machine it answers only that machine, so terminal tools and background jobs can use it with no certificate at all. On a private network it serves over HTTPS with a certificate you provide, to the addresses you allow. On the open web it obtains and renews public certificates itself. Start small and move it out when you are ready.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 150" role="img" aria-label="Three install positions side by side: this machine only, your own network with your own certificate, and the open web with public certificates, linked by arrows showing an install can move outward">
+              <rect class="frame" x="8" y="18" width="92" height="114" rx="12"/>
+              <text class="lbl" x="54" y="40" text-anchor="middle">this machine</text>
+              <g class="app"><rect x="26" y="52" width="56" height="40" rx="6"/><line x1="36" y1="66" x2="72" y2="66"/><line x1="36" y1="76" x2="64" y2="76"/></g>
+              <text class="lbl muted tiny" x="54" y="114" text-anchor="middle">only itself</text>
+              <rect class="frame" x="114" y="18" width="92" height="114" rx="12"/>
+              <text class="lbl" x="160" y="40" text-anchor="middle">your network</text>
+              <g class="app"><rect x="132" y="52" width="56" height="40" rx="6"/><line x1="142" y1="66" x2="178" y2="66"/><line x1="142" y1="76" x2="170" y2="76"/></g>
+              <text class="lbl muted tiny" x="160" y="114" text-anchor="middle">your certificate</text>
+              <rect class="frame" x="220" y="18" width="92" height="114" rx="12"/>
+              <text class="lbl" x="266" y="40" text-anchor="middle">open web</text>
+              <g class="app"><rect x="238" y="52" width="56" height="40" rx="6"/><line x1="248" y1="66" x2="284" y2="66"/><line x1="248" y1="76" x2="276" y2="76"/></g>
+              <text class="lbl muted tiny" x="266" y="114" text-anchor="middle">public certificates</text>
+              <g class="ln"><line x1="100" y1="72" x2="114" y2="72"/><path d="M108 68l6 4-6 4"/><line x1="206" y1="72" x2="220" y2="72"/><path d="M214 68l6 4-6 4"/></g>
+            </svg>
+          </figure>
+        </li>
+
         <!-- 10 · update + rollback -->
         <li class="row">
           <div class="say">
@@ -433,7 +457,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
         <li class="row">
           <div class="say">
             <h3>Backups you can carry off the server.</h3>
-            <p><code>pn backup</code> writes one sealed file, encrypted and signed, meant to leave the machine. <code>pn restore</code> puts it back on the same server or a fresh one, checks the whole file before writing anything, and signs every old session out so nothing from before the restore stays valid. Daily snapshots stay on the host for the quick cases.</p>
+            <p><code>pn backup</code> writes one sealed file, encrypted and signed, meant to leave the machine. <code>pn restore</code> puts it back on the same server or a fresh one, checks the whole file before writing anything, and signs every old session out so nothing from before the restore stays valid. Daily snapshots stay on the host for the quick cases. Database servers such as Postgres are backed up with their own tools, and their dumps can be sealed into the same file.</p>
           </div>
           <figure class="vis">
             <svg class="vg" viewBox="0 0 320 150" role="img" aria-label="A sealed backup file leaving one server and being restored onto a fresh server">
@@ -450,11 +474,11 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
           </figure>
         </li>
 
-        <!-- 11 · nothing phones home -->
+        <!-- 11 · no telemetry -->
         <li class="row">
           <div class="say">
-            <h3>Nothing phones home. Your users can take their data with them, or erase it.</h3>
-            <p>There is no analytics helper, no page-view call, nothing that reports back out of the box. Export and erasure are capabilities every app inherits, so the people using what you build keep rights over their own data without you writing a line.</p>
+            <h3>No telemetry. Your users can take their data with them, or erase it.</h3>
+            <p>PN does not report how you or your apps use it: no analytics helper, no usage statistics, no crash reports. Once a day it checks for a newer release and tells you; it never installs anything on its own, and you can turn the check off. Export and erasure are capabilities every app inherits, so the people using what you build keep rights over their own data without you writing a line.</p>
           </div>
           <figure class="vis">
             <svg class="vg" viewBox="0 0 320 150" role="img" aria-label="An install with an outbound tracking arrow struck through, beside a person holding export and erase controls">
@@ -522,7 +546,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
         <p class="directive"><span>Prime directive:</span> Protect the system and its users’ data. Nothing outranks it.</p>
         <p>Hammer is the overwatch. It runs as its own process beside PN, not inside it, so a failure in the system it guards cannot take the guard down with it. <strong>PN does not run without it.</strong></p>
         <p>It keeps its own sealed store, separate from PN's, that no app can reach. It keeps the record of what happened in a form where tampering shows. And it watches security signals, not your users: it does not know what they read, only when something in the system starts to behave like a threat.</p>
-        <p>When a component misbehaves, Hammer does not negotiate with it. It removes it, restarts clean, and reports. When PN itself goes wrong, Hammer can stop it.</p>
+        <p>When a component misbehaves, Hammer does not negotiate with it. It stops it, restarts PN clean, and reports. When PN itself goes wrong, Hammer can stop it.</p>
       </div>
       <figure class="vis hammer-vis">
         <svg class="vg" viewBox="0 0 360 220" role="img" aria-label="The PN process with its core and spokes on the left; beside it, a separate heavier-framed Hammer process with a watching eye and its own sealed store, connected by a line">
@@ -553,11 +577,11 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
       <p class="intro">The services you would otherwise stitch together, each with its own account, config and failure mode, become one install that you update, back up and watch as one thing.</p>
       <ul class="swap">
         <li><span class="was">A sign-in and user-management service</span><span class="now">Accounts, sessions, second factor, OAuth sign-in and roles, per app, shared across a group when you say so.</span></li>
-        <li><span class="was">An API gateway with key management</span><span class="now">Endpoints declared once, answered over REST and MCP, behind API keys you mint and revoke, with rate limits per endpoint and per consumer.</span></li>
+        <li><span class="was">An API gateway with key management</span><span class="now">Endpoints declared once, answered over REST and MCP, behind API keys you mint and revoke, with rate limits per app and per endpoint.</span></li>
         <li><span class="was">A database access layer</span><span class="now">One model API and one query language across SQL, document and vector stores, plus HTTP APIs as data sources.</span></li>
         <li><span class="was">A secret store</span><span class="now">Secrets declared by name and handed only where they were declared. The values never sit in your code.</span></li>
         <li><span class="was">A reverse proxy and certificate renewal</span><span class="now">Static sites, single-page apps and proxied services on one listener, with HTTPS issued and renewed for you.</span></li>
-        <li><span class="was">Deploy, update and backup scripts</span><span class="now">One install, one update command with automatic rollback, sealed backups that restore onto a fresh server.</span></li>
+        <li><span class="was">Deploy, update and backup scripts</span><span class="now">One install, one update command with automatic rollback, sealed backups of everything PN holds, restorable onto a fresh server.</span></li>
         <li><span class="was">Monitoring and an audit trail</span><span class="now">Health in the admin console and from the terminal, and a record of what happened, kept by Hammer where tampering shows.</span></li>
       </ul>
     </div>
@@ -566,8 +590,8 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
   <!-- ─────────────── IGC EXAMPLE ─────────────── -->
   <section class="band igc" id="igc" aria-labelledby="igc-h">
     <div class="wrap">
-      <h2 id="igc-h">A whole company, included as the example</h2>
-      <p class="intro">The release ships with a complete example stack: Imaginary Grocery Company, a fictional grocery and logistics business, declared as two groups on one install. Every declaration, model, view and seed file is in it, so you can read how an organisation is put together on PN and build yours the same way.</p>
+      <h2 id="igc-h">A whole company, built as the proving ground</h2>
+      <p class="intro">Imaginary Grocery Company is a fictional grocery and logistics business that we are building on PN as a complete reference stack: two groups on one install, with every declaration, model, view and seed file written out. It is the stack PN is proven against before release, and it shows how an organisation is put together on PN so you can build yours the same way.</p>
       <div class="igc-grid">
         <figure class="vis">
           <svg class="vg igc-vg" viewBox="0 0 360 236" role="img" aria-label="Two groups on one install: Internal Operations with five employee apps sharing one login, and Customer Services with the storefront and its own customer accounts; a scoped-key arrow carries availability from stock operations to the storefront; Postgres, MongoDB and a weather API feed combined views beneath">
@@ -618,7 +642,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
       <div class="who-grid">
         <article>
           <h3>The box in the closet</h3>
-          <p>A home lab or automation machine running several tools. One sign-in for all of them, each tool kept apart from the rest, HTTPS handled, updates that roll themselves back, and a backup you can carry to the next box.</p>
+          <p>A home lab, NAS or office server running several tools, on one machine or across your own network. One sign-in for all of them, each tool kept apart from the rest, encrypted connections with your own certificate, updates that roll themselves back, and a backup you can carry to the next box.</p>
         </article>
         <article>
           <h3>The organisation</h3>
@@ -627,6 +651,49 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
         <article>
           <h3>The developer with an API</h3>
           <p>Four commands from app to endpoint to key. The endpoint answers over REST, through the TypeScript or Python SDK, and as a tool AI assistants can call over MCP, with every error carrying a code the caller can act on.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────── ROADMAP ─────────────── -->
+  <section class="band who roadmap" id="roadmap" aria-labelledby="roadmap-h">
+    <div class="wrap">
+      <h2 id="roadmap-h">After the first release</h2>
+      <p class="intro">The first release is the foundation. This is where it goes next, planned in the open and without dates.</p>
+      <div class="who-grid">
+        <article>
+          <h3>In the updates that follow</h3>
+          <ul>
+            <li>A certificate authority PN runs for your own network</li>
+            <li>Public sites and network-only apps on the same install</li>
+            <li>Installing and updating machines with no internet connection</li>
+            <li>Native macOS hosting</li>
+            <li>Transactions across several writes to one database</li>
+            <li>Rate limits per key and per role, and usage metering</li>
+            <li>Fuller admin screens: audit history, alert history, and an undo window for deleted apps</li>
+            <li>One-click installs with hosting providers</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Further ahead</h3>
+          <ul>
+            <li>Selected core components and Hammer rewritten in Rust, where it measurably helps</li>
+            <li>Hammer separated from PN by the operating system, not only by process</li>
+            <li>One installation spread across several servers</li>
+            <li>Signed, reviewed extensions from other developers</li>
+            <li>Writes and transactions across several data stores</li>
+            <li>More platforms: Deno, more Linux distributions, and a look at native Windows</li>
+          </ul>
+        </article>
+        <article>
+          <h3>What will not change</h3>
+          <ul>
+            <li>Free and open source, under the Apache-2.0 license</li>
+            <li>No telemetry: PN never reports how you or your apps use it</li>
+            <li>Your apps and your data stay on your server</li>
+            <li>Every app kept apart from every other, by design</li>
+          </ul>
         </article>
       </div>
     </div>

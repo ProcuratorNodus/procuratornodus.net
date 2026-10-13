@@ -8,6 +8,6 @@ Procurator Nodus (PN) is a self-hosted substrate that runs many applications on 
 
 **This site** is the project’s official home at https://procuratornodus.com, currently a pre-release preview. The release, documentation and install steps will be published there.
 
-Static files only: `index.html`, `styles.css`, `main.js`, `favicon.svg`, `404.html`. No build step, no frameworks, no analytics. The only external request is the Google Fonts stylesheet. The hero knot is drawn on a 2D canvas in vanilla JavaScript and falls back to an inline SVG without JavaScript; with reduced motion it renders one still frame.
+Static files only: `index.html`, `styles.css`, `main.js`, `favicon.svg`, `404.html`. No build step, no frameworks, no analytics, no third-party requests: the two typefaces (Bricolage Grotesque and Cinzel, SIL Open Font License 1.1) are served from `fonts/`. The hero knot is drawn on a 2D canvas in vanilla JavaScript and falls back to an inline SVG without JavaScript; with reduced motion it renders one still frame.
 
 Project: https://github.com/ProcuratorNodus
