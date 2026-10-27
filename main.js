@@ -86,7 +86,7 @@
       engine.setColors(
         parseColor(cs.getPropertyValue('--knot-a'), [99, 102, 241]),
         parseColor(cs.getPropertyValue('--knot-b'), [129, 140, 248]),
-        parseColor(cs.getPropertyValue('--amber-fill'), [245, 158, 11])
+        parseColor(cs.getPropertyValue('--knot-warm'), [245, 158, 11])
       );
     }
     function resize() {
