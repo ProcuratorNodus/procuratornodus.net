@@ -245,6 +245,8 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .status{padding:64px 0 80px;border-top:1px solid var(--border)}
 .badge{display:inline-block;font-family:var(--mono);font-size:.9rem;color:var(--amber);border:1px solid currentColor;border-radius:999px;padding:3px 12px;margin-bottom:12px}
 .status .intro{margin:0 0 14px}
+.status .kt{margin:22px 0 0}
+.status .kt a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
 footer{border-top:1px solid var(--border);padding:28px 0 44px;color:var(--muted);font-size:.92rem}
 .foot{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
 footer a{color:var(--text);display:inline-block;padding:10px 0}
