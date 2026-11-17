@@ -69,15 +69,17 @@
   <section class="can" id="can" aria-labelledby="can-h">
     <div class="wrap">
       <h2 id="can-h" class="big">It can do that.</h2>
-      <p class="intro">Everything below is in the release we are building now. Short statements, no hedging. Each one is something you would otherwise assemble from three tools and a weekend.</p>
+      <p class="intro">Everything below is in the first release. Short statements, no hedging. Each one is something you would otherwise assemble from three tools and a weekend. What comes after it is further down, under <a href="#roadmap">After the first release</a>.</p>
 
       <ol class="ledger">
 
-        <!-- 1 · isolation -->
+        <!-- ══════ run your apps ══════ -->
+
+        <!-- several apps, each walled off -->
         <li class="row">
           <div class="say">
             <h3>Several apps. One process. Each one walled off.</h3>
-            <p>A shop, a blog, an internal tool and an API can share one server and one core, and still none of them can see another's data, sessions or secrets. Isolation is how the system is built, not a setting you remember to turn on.</p>
+            <p>A shop, a blog, an internal tool and an API can share one server and one core, and still none of them can see another's data, sign-ins or secrets. Isolation is how the system is built, not a setting you remember to turn on.</p>
           </div>
           <figure class="vis">
             <svg class="vg" viewBox="0 0 320 180" role="img" aria-label="Four apps standing side by side inside one process, separated by walls, all connected downward to one core">
@@ -95,7 +97,7 @@
           </figure>
         </li>
 
-        <!-- 2 · group identity -->
+        <!-- one account across a group -->
         <li class="row">
           <div class="say">
             <h3>One account signs in to every app in a group.</h3>
@@ -137,11 +139,11 @@
           </figure>
         </li>
 
-        <!-- 3 · serve -->
+        <!-- serve -->
         <li class="row">
           <div class="say">
             <h3>A static site, a single-page app and a service written in anything, side by side. HTTPS included.</h3>
-            <p>Serve static files, route a single-page app, or stand a process in another language behind the built-in proxy. Certificates are issued and renewed for you. One place to configure all of it.</p>
+            <p>Serve static files, route a single-page app, run a server-rendered app such as Next.js or Astro, or stand a service in another language behind the built-in proxy. On the open web, certificates are issued and renewed for you. One place to configure all of it.</p>
           </div>
           <figure class="vis">
             <svg class="vg" viewBox="0 0 320 180" role="img" aria-label="Three kinds of application feeding one serving layer that carries an HTTPS lock">
@@ -161,20 +163,47 @@
         <li class="row">
           <div class="say">
             <h3>Start an app in one command.</h3>
-            <p>Pick a starter: a static site, a React or Astro single-page app, an API-only app, or a Python app. Each one arrives with sign-in pages and the SDK already pointed at your install, registered in a group, bound to a host. Open it and start on the part that is yours.</p>
+            <p>Pick a starter: a notes app in React for many users, a blog with one author, a static site, or an API-only app. It lands in your own folder, and the notes and blog starters arrive with sign-in pages, a database and the SDK already wired to your install. Change the pages, build, and <code>pn deploy</code> puts it live.</p>
           </div>
           <figure class="term">
-            <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn generate</span></figcaption>
-<pre><code><span class="pr">$</span> pn generate app shop --preset=spa --framework=react
+            <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn create</span></figcaption>
+<pre><code><span class="pr">$</span> pn create app shop --starter=notes
 
-<span class="dim">--preset=&lt;p&gt;      static | spa | api-only | python-basis</span>
-<span class="dim">--framework=&lt;f&gt;   react | astro  (spa preset only)</span>
-<span class="dim">--group=&lt;slug&gt;    target app group (created if new)</span>
+<span class="dim">--starter=&lt;s&gt;   notes | blog | static | api-only</span>
+<span class="dim">--yes           no questions; every answer from flags</span>
+<span class="pr">$</span> npm install &amp;&amp; npm run build
+<span class="pr">$</span> pn deploy
 <span class="pr">$</span> <span class="cur"></span></code></pre>
           </figure>
         </li>
 
-        <!-- 4 · one model, several sources (code) -->
+        <!-- files, mail and scheduled jobs -->
+        <li class="row">
+          <div class="say">
+            <h3>Files, mail and scheduled jobs, without another service.</h3>
+            <p>Each app gets its own file storage on the server, private or public, and it travels in your backups. Apps send mail through the relay you already use, and a message that cannot go out yet is retried rather than lost. An app can schedule its own recurring jobs, and a long-running worker can run beside it as a service.</p>
+          </div>
+          <figure class="vis">
+            <svg class="vg" viewBox="0 0 320 160" role="img" aria-label="One app drawing on three things from the same install: its own files, private or public; mail that is retried rather than lost; and scheduled jobs and workers">
+              <g class="app"><rect x="14" y="48" width="84" height="64" rx="8"/><text class="lbl" x="56" y="70" text-anchor="middle">your app</text><line x1="28" y1="86" x2="84" y2="86"/><line x1="28" y1="96" x2="72" y2="96"/></g>
+              <g class="ln"><path d="M98 72 C 124 72, 124 32, 148 32"/><path d="M98 80 H 148"/><path d="M98 88 C 124 88, 124 128, 148 128"/></g>
+              <g class="file"><path d="M152 16 h18 l8 8 v24 h-26z"/><path d="M170 16 v8 h8"/></g>
+              <text class="lbl" x="192" y="30">files</text>
+              <text class="lbl muted tiny" x="192" y="43">private or public</text>
+              <g class="file"><path d="M152 68 h28 v24 h-28z"/><path d="M152 68 l14 11 l14 -11"/></g>
+              <text class="lbl" x="192" y="78">mail</text>
+              <text class="lbl muted tiny" x="192" y="91">retried, not lost</text>
+              <circle class="node" cx="166" cy="128" r="13"/>
+              <g class="ln"><line x1="166" y1="128" x2="166" y2="120"/><line x1="166" y1="128" x2="172" y2="132"/></g>
+              <text class="lbl" x="192" y="126">scheduled jobs</text>
+              <text class="lbl muted tiny" x="192" y="139">and workers</text>
+            </svg>
+          </figure>
+        </li>
+
+        <!-- ══════ data ══════ -->
+
+        <!-- one model, several sources -->
         <li class="row wide">
           <div class="say">
             <h3>One data model, assembled from several places.</h3>
@@ -239,11 +268,11 @@
           </div>
         </li>
 
-        <!-- 5 · federated -->
+        <!-- federated reads -->
         <li class="row">
           <div class="say">
             <h3>Ask once. Every source answers.</h3>
-            <p>A federated query fans out to several stores at the same time, feeds the result of one into the filter of the next, and returns a single answer that names which parts came back and which did not. The stores can be SQLite, Postgres, MySQL or MariaDB, SQL Server, MongoDB, Redis, Qdrant, or a plain HTTP API.</p>
+            <p>A federated query fans out to several stores at the same time, feeds the result of one into the filter of the next, and returns a single answer that names which parts came back and which did not. The stores can be SQLite, Postgres, MySQL or MariaDB, SQL Server, MongoDB, or a plain HTTP API.</p>
           </div>
           <figure class="vis">
             <svg class="vg" viewBox="0 0 320 200" role="img" aria-label="One query fanning out to three different data sources, one source feeding the next, and the results merging into a single answer with a status per part">
@@ -263,13 +292,13 @@
           </figure>
         </li>
 
-        <!-- three ways in to data -->
+        <!-- two ways in to data -->
         <li class="row wide">
           <div class="say">
-            <h3>Three ways in to your data. Pick the one that fits the query.</h3>
-            <p>The model API for everyday calls. NodusQL when you want one dialect that PN translates for every engine underneath, SQL table, document collection or vector index alike. Declared raw statements for the hard ones: joins, window functions, each database's own features, written as real SQL in your app's own files with named parameters. Raw statements and NodusQL can both act as sources inside a federated read.</p>
+            <h3>Two ways in to your data. Pick the one that fits the query.</h3>
+            <p>The model API for everyday calls: filter, sort, page and follow relationships. Raw SQL or MongoDB queries for the hard ones: joins, window functions, each database's own features, on Postgres, MySQL, MariaDB, SQL Server and MongoDB. A raw query lists the database and the tables or collections it touches, and PN checks it against that list and the app's permissions before it runs.</p>
           </div>
-          <div class="codetrio">
+          <div class="codepair">
             <figure class="code">
               <figcaption><span>model API</span><em>illustrative</em></figcaption>
 <pre><code><span class="k2">await</span> pn.<span class="f">custom</span>(<span class="s">'data.query'</span>, {
@@ -280,44 +309,61 @@
 })</code></pre>
             </figure>
             <figure class="code">
-              <figcaption><span>NodusQL</span><em>real syntax</em></figcaption>
-<pre><code><span class="k2">SELECT</span> id, total, status
-<span class="k2">FROM</span> orders
-<span class="k2">WHERE</span> status <span class="k2">IN</span> (<span class="s">'paid'</span>, <span class="s">'shipped'</span>)
-  <span class="k2">AND</span> total <span class="k2">BETWEEN</span> <span class="n">50</span> <span class="k2">AND</span> <span class="n">500</span>
-  <span class="k2">AND</span> tags <span class="k2">CONTAINS</span> <span class="s">'gift'</span>
-<span class="k2">ORDER BY</span> placedAt <span class="k2">DESC</span>
-<span class="k2">LIMIT</span> <span class="n">20</span></code></pre>
-            </figure>
-            <figure class="code">
-              <figcaption><span>declared raw</span><em>illustrative</em></figcaption>
-<pre><code><span class="c">-- statements/top_customers.sql</span>
-<span class="k2">SELECT</span> c.id, c.name,
-       <span class="f">SUM</span>(o.total) <span class="k2">AS</span> spent
-<span class="k2">FROM</span> customers c
-<span class="k2">JOIN</span> orders o <span class="k2">ON</span> o.customer_id = c.id
-<span class="k2">WHERE</span> o.placed_at &gt;= <span class="n">:since</span>
-<span class="k2">GROUP BY</span> c.id, c.name
-<span class="k2">ORDER BY</span> spent <span class="k2">DESC</span>
-<span class="k2">LIMIT</span> <span class="n">10</span></code></pre>
+              <figcaption><span>raw, with what it touches</span><em>illustrative</em></figcaption>
+<pre><code><span class="k2">await</span> pn.<span class="f">custom</span>(<span class="s">'data.raw'</span>, {
+  resource: <span class="s">'orders'</span>,
+  query: {
+    sql: <span class="s">`SELECT c.id, c.name, SUM(o.total) AS spent
+          FROM customers c
+          JOIN orders o ON o.customer_id = c.id
+          WHERE o.placed_at &gt;= $1
+          GROUP BY c.id, c.name
+          ORDER BY spent DESC LIMIT 10`</span>,
+    params: [since],
+  },
+  references: { databases: [
+    { name: <span class="s">'shop'</span>, tables: [<span class="s">'customers'</span>, <span class="s">'orders'</span>] },
+  ] },
+})</code></pre>
             </figure>
           </div>
         </li>
 
-        <!-- 7 · API builder -->
+        <!-- ══════ APIs and SDKs ══════ -->
+
+        <!-- API builder -->
         <li class="row">
           <div class="say">
             <h3>Turn an app into an API in four commands.</h3>
-            <p>Scaffold it, add an endpoint, deploy, mint a key. No server to write. The same endpoint answers over REST, through the SDK, and as a tool to AI assistants over MCP, each behind an API key you issued and can revoke.</p>
+            <p>Scaffold it, add an endpoint, deploy, mint a key. No server to write, and the endpoint's code can use Node's built-ins and the npm packages you declare. Before anything goes live, the deploy tells you in plain words what the API will be allowed to do. The endpoint answers over REST and through both SDKs, behind keys you issue and can revoke.</p>
           </div>
           <figure class="term">
-            <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn api</span></figcaption>
-<pre><code><span class="pr">$</span> pn api new orders --app=shop
-<span class="pr">$</span> pn api endpoint add orders list --read
-<span class="pr">$</span> pn api deploy orders
+            <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn</span></figcaption>
+<pre><code><span class="pr">$</span> pn create api orders --app=shop
+<span class="pr">$</span> pn create endpoint orders list
+<span class="pr">$</span> pn deploy
+<span class="dim">  shows what orders may reach, then asks you to approve</span>
 <span class="pr">$</span> pn api key create orders --for=warehouse
 <span class="ok">✓</span> key issued <span class="dim">(shown once)</span>
 <span class="pr">$</span> <span class="cur"></span></code></pre>
+          </figure>
+        </li>
+
+        <!-- secrets + declared hosts -->
+        <li class="row">
+          <div class="say">
+            <h3>Secrets stay out of your code. Outbound calls go only where you said they would.</h3>
+            <p>An API names the secrets it needs and the hosts it will talk to, and that is the whole declaration. The value of a secret never appears in your repository. A call to a host you did not list is refused before it leaves.</p>
+          </div>
+          <figure class="code">
+            <figcaption><span>api.json</span><em>illustrative</em></figcaption>
+<pre><code><span class="k">"needs"</span>: {
+  <span class="k">"calls"</span>:   [<span class="s">"data.query"</span>],
+  <span class="k">"hosts"</span>:   [<span class="s">"api.carrier.example"</span>],
+  <span class="k">"secrets"</span>: { <span class="k">"CARRIER_TOKEN"</span>: [<span class="s">"api.carrier.example"</span>] }
+}
+<span class="c">// the token lives in the vault; this file only names it</span>
+<span class="c">// and binds it to the one host it may be sent to</span></code></pre>
           </figure>
         </li>
 
@@ -325,7 +371,7 @@
         <li class="row wide">
           <div class="say">
             <h3>Two SDKs, one contract.</h3>
-            <p>TypeScript and Python, kept at parity by a machine-checked matrix, so a capability in one is a capability in the other. The TypeScript SDK adds React hooks for sign-in, queries, mutations, permissions, uploads and live updates, and Astro helpers for server-side sessions and routes.</p>
+            <p>TypeScript and Python, kept in step by tests that check both, so a capability in one is a capability in the other. The TypeScript SDK adds React hooks for sign-in, queries, changes, paging, permissions and file uploads.</p>
           </div>
           <div class="codepair">
             <figure class="code">
@@ -349,54 +395,22 @@ orders = <span class="k2">await</span> pn.<span class="f">custom</span>(<span cl
           </div>
         </li>
 
-        <!-- live updates -->
-        <li class="row">
-          <div class="say">
-            <h3>Live updates, pushed to the app.</h3>
-            <p>Subscribe to a capability and changes arrive as they happen, over a connection that reconnects on its own when the network drops. Loop over it in plain TypeScript, or hand it to a React hook and render the latest value.</p>
-          </div>
-          <figure class="code">
-            <figcaption><span>subscribe</span><em>illustrative</em></figcaption>
-<pre><code><span class="k2">const</span> stream = pn.<span class="f">subscribe</span>&lt;Order&gt;(<span class="s">'orders.changes'</span>, {})
-<span class="k2">for await</span> (<span class="k2">const</span> change <span class="k2">of</span> stream) <span class="f">render</span>(change)
+        <!-- ══════ install, update, recover ══════ -->
 
-<span class="c">// the same stream, as a hook</span>
-<span class="k2">const</span> { data } = <span class="f">useSubscribe</span>&lt;Order&gt;(<span class="s">'orders.changes'</span>, {})</code></pre>
-          </figure>
-        </li>
-
-        <!-- 8 · secrets + declared hosts -->
-        <li class="row">
-          <div class="say">
-            <h3>Secrets stay out of your code. Outbound calls go only where you said they would.</h3>
-            <p>An API names the secrets it needs and the hosts it will talk to, and that is the whole declaration. The value of a secret never appears in your repository. A call to a host you did not list is refused before it leaves.</p>
-          </div>
-          <figure class="code">
-            <figcaption><span>api.json</span><em>illustrative</em></figcaption>
-<pre><code><span class="k">"needs"</span>: {
-  <span class="k">"calls"</span>:   [<span class="s">"data.query"</span>],
-  <span class="k">"hosts"</span>:   [<span class="s">"api.carrier.example"</span>],
-  <span class="k">"secrets"</span>: { <span class="k">"CARRIER_TOKEN"</span>: [<span class="s">"api.carrier.example"</span>] }
-}
-<span class="c">// the token lives in the vault; this file only names it</span>
-<span class="c">// and binds it to the one host it may be sent to</span></code></pre>
-          </figure>
-        </li>
-
-        <!-- 9 · install -->
+        <!-- install -->
         <li class="row">
           <div class="say">
             <h3>Install it. Answer the wizard. It is a service.</h3>
-            <p>The setup wizard writes the configuration and registers PN as a system service. The first start prints the link to the admin console, where you add capabilities, configure them and watch health. From the terminal, <code>pn status</code> and <code>pn doctor</code> tell you the same story.</p>
+            <p>The setup wizard writes the configuration and registers PN as a system service. The first start prints the link to the admin console, where you watch health and do light setup. The <code>pn</code> command does everything else, and <code>pn status</code> and <code>pn doctor</code> tell you what is running and what is wrong.</p>
           </div>
           <figure class="term">
             <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn</span></figcaption>
 <pre><code><span class="pr">$</span> pn init
 <b>Procurator Nodus — setup wizard</b>
-  <span class="ok">✓</span> Project directory  <span class="dim">~/procurator</span>
+  <span class="ok">✓</span> Position           <span class="dim">open web</span>
   <span class="ok">✓</span> Process manager    <span class="dim">systemd</span>
   <span class="ok">✓</span> Admin credentials  <span class="dim">configured</span>
-  <span class="ok">✓</span> Config written     <span class="dim">~/.pn/config.json</span>
+  <span class="ok">✓</span> Config written     <span class="dim">procurator.config.json</span>
 Setup complete. Run <span class="cy">pn start</span> to boot.
 <span class="pr">$</span> pn start
 <span class="dim">Starting Procurator Nodus...</span>
@@ -406,7 +420,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
           </figure>
         </li>
 
-        <!-- 9b · install positions -->
+        <!-- install positions -->
         <li class="row">
           <div class="say">
             <h3>On one machine, on your own network, or on the open web.</h3>
@@ -431,11 +445,11 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
           </figure>
         </li>
 
-        <!-- 10 · update + rollback -->
+        <!-- update + rollback -->
         <li class="row">
           <div class="say">
             <h3>Patch it with one command. If it does not come up healthy, it puts itself back.</h3>
-            <p><code>pn update</code> stages the new release, snapshots the old one, switches over and checks health. A failed check puts the release that was working back, without waiting for you. <code>pn rollback</code> does the same on request.</p>
+            <p><code>pn update</code> stages the new release, snapshots the old one, switches over and checks health. If the new release does not come up healthy, the one that was working is put back without waiting for you. <code>pn rollback</code> does the same on request.</p>
           </div>
           <figure class="vis">
             <svg class="vg" viewBox="0 0 320 130" role="img" aria-label="A timeline from the current release to a patch to a health check; a passing check continues forward, a failing check loops back to the current release">
@@ -455,7 +469,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
         <li class="row">
           <div class="say">
             <h3>Backups you can carry off the server.</h3>
-            <p><code>pn backup</code> writes one sealed file, encrypted and signed, meant to leave the machine. <code>pn restore</code> puts it back on the same server or a fresh one, checks the whole file before writing anything, and signs every old session out so nothing from before the restore stays valid. Daily snapshots stay on the host for the quick cases. Database servers such as Postgres are backed up with their own tools, and their dumps can be sealed into the same file.</p>
+            <p><code>pn backup</code> writes one sealed file, encrypted and signed, meant to leave the machine. <code>pn restore</code> puts it back on the same server or a fresh one, checks the whole file before writing anything, and signs everyone out so no sign-in from before the restore stays valid. Scheduled snapshots stay on the host for the quick cases. Database servers such as Postgres are backed up with their own tools, and their dumps can be sealed into the same file.</p>
           </div>
           <figure class="vis">
             <svg class="vg" viewBox="0 0 320 150" role="img" aria-label="A sealed backup file leaving one server and being restored onto a fresh server">
@@ -467,12 +481,14 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
               <text class="lbl muted" x="160" y="128" text-anchor="middle">sealed backup</text>
               <g class="app"><rect x="222" y="34" width="84" height="64" rx="8"/><line x1="234" y1="52" x2="294" y2="52"/><line x1="234" y1="64" x2="294" y2="64"/><line x1="234" y1="76" x2="278" y2="76"/></g>
               <text class="lbl muted" x="264" y="118" text-anchor="middle">a fresh server</text>
-              <text class="lbl muted" x="160" y="146" text-anchor="middle">every old session signed out on restore</text>
+              <text class="lbl muted" x="160" y="146" text-anchor="middle">everyone signed out on restore</text>
             </svg>
           </figure>
         </li>
 
-        <!-- 11 · no telemetry -->
+        <!-- ══════ privacy ══════ -->
+
+        <!-- no telemetry -->
         <li class="row">
           <div class="say">
             <h3>No telemetry. Your users can take their data with them, or erase it.</h3>
@@ -501,7 +517,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
     <div class="wrap errors-grid">
       <div>
         <h2 id="errors-h">Every error has a code, and every code has a fix</h2>
-        <p>Hundreds of codes, each namespaced by where it comes from, each stable. See one in a log or an API response and run one command: it tells you what caused it, how to fix it, its category and HTTP status, and a hint. The same codes come back through the SDKs, so an app can handle them by name instead of parsing a message. There is <code>pn errors find</code> for when all you have is a phrase.</p>
+        <p>Every code is namespaced by where it comes from, and stable. See one in a log or an API response and run one command: it tells you what caused it, how to fix it, its category and HTTP status, and a hint. The same codes come back through the SDKs, so an app can handle them by name instead of parsing a message. There is <code>pn errors find</code> for when all you have is a phrase.</p>
       </div>
       <figure class="term wrap wide">
         <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn errors</span></figcaption>
@@ -529,8 +545,8 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
       <div>
         <h2 id="how-h">How it holds together</h2>
         <p>At the center is the <strong>core</strong>. It is the one thing you install, and its job is to keep apps apart while letting them share what you choose.</p>
-        <p>Around it sit <strong>spokes</strong>. Each provides one capability: sign-in, data, secrets, serving, APIs, the admin console. An app uses the spokes it needs, and every request between parts passes through the core, so a spoke never reaches another spoke directly and an app never reaches another app.</p>
-        <p>You install one package, run a command-line setup, then manage the rest from the admin console. Adding a capability is an install. Adding an app is a declaration.</p>
+        <p>Around it sit <strong>spokes</strong>. Each provides one capability: sign-in, data, files, mail, secrets, serving, APIs, the admin console. An app uses the spokes it needs, and every request between parts passes through the core, so a spoke never reaches another spoke directly and an app never reaches another app.</p>
+        <p>You install one package and run a command-line setup. From then on the <code>pn</code> command does the work and the admin console shows you the state of it all. The capabilities come with the install. Adding an app is a declaration and a deploy.</p>
       </div>
       <svg class="diagram" viewBox="0 0 400 400" role="img" aria-labelledby="dt dd"><title id="dt">Core and spokes</title><desc id="dd">A central core connected to six capability spokes: identity, data, secrets, APIs, network and admin.</desc><circle class="ring" cx="200" cy="200" r="135"/><line class="ln" x1="200" y1="200" x2="200.0" y2="65.0"/><line class="ln" x1="200" y1="200" x2="316.9" y2="132.5"/><line class="ln" x1="200" y1="200" x2="316.9" y2="267.5"/><line class="ln" x1="200" y1="200" x2="200.0" y2="335.0"/><line class="ln" x1="200" y1="200" x2="83.1" y2="267.5"/><line class="ln" x1="200" y1="200" x2="83.1" y2="132.5"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:0.0px;--dy:-135.0px;animation-delay:0.00s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:116.9px;--dy:-67.5px;animation-delay:0.55s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:116.9px;--dy:67.5px;animation-delay:1.10s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:0.0px;--dy:135.0px;animation-delay:1.65s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:-116.9px;--dy:67.5px;animation-delay:2.20s"/><circle class="pulse" r="4" cx="200" cy="200" style="--dx:-116.9px;--dy:-67.5px;animation-delay:2.75s"/><circle class="core" cx="200" cy="200" r="40"/><text class="coretxt" x="200" y="205" text-anchor="middle">Core</text><circle class="node" cx="200.0" cy="65.0" r="26"/><text class="lbl" x="200.0" y="69.0">Identity</text><circle class="node" cx="316.9" cy="132.5" r="26"/><text class="lbl" x="316.9" y="136.5">Data</text><circle class="node" cx="316.9" cy="267.5" r="26"/><text class="lbl" x="316.9" y="271.5">Secrets</text><circle class="node" cx="200.0" cy="335.0" r="26"/><text class="lbl" x="200.0" y="339.0">APIs</text><circle class="node" cx="83.1" cy="267.5" r="26"/><text class="lbl" x="83.1" y="271.5">Network</text><circle class="node" cx="83.1" cy="132.5" r="26"/><text class="lbl" x="83.1" y="136.5">Admin</text></svg>
     </div>
@@ -542,9 +558,9 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
       <div>
         <h2 id="hammer-h">Hammer stands apart</h2>
         <p class="directive"><span>Prime directive:</span> Protect the system and its users’ data. Nothing outranks it.</p>
-        <p>Hammer is the overwatch. It runs as its own process beside PN, not inside it, so a failure in the system it guards cannot take the guard down with it. <strong>PN does not run without it.</strong></p>
+        <p>Hammer is the overwatch. It runs as its own process beside PN, not inside it, so a failure in the system it guards cannot take the guard down with it. <strong>In production, PN does not run without it.</strong></p>
         <p>It keeps its own sealed store, separate from PN's, that no app can reach. It keeps the record of what happened in a form where tampering shows. And it watches security signals, not your users: it does not know what they read, only when something in the system starts to behave like a threat.</p>
-        <p>When a component misbehaves, Hammer does not negotiate with it. It stops it, restarts PN clean, and reports. When PN itself goes wrong, Hammer can stop it.</p>
+        <p>Ordinary trouble does not set it off. What PN refuses on its own is recorded and reported, and a database outage never takes your sites down: at most, writes pause while the console stays up. When PN itself goes wrong, Hammer does not negotiate. It stops PN, the service comes back clean, and you are told.</p>
       </div>
       <figure class="vis hammer-vis">
         <svg class="vg" viewBox="0 0 360 220" role="img" aria-label="The PN process with its core and spokes on the left; beside it, a separate heavier-framed Hammer process with a watching eye and its own sealed store, connected by a line">
@@ -574,12 +590,13 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
       <h2 id="replaces-h">What it replaces</h2>
       <p class="intro">The services you would otherwise stitch together, each with its own account, config and failure mode, become one install that you update, back up and watch as one thing.</p>
       <ul class="swap">
-        <li><span class="was">A sign-in and user-management service</span><span class="now">Accounts, sessions, second factor, OAuth sign-in and roles, per app, shared across a group when you say so.</span></li>
-        <li><span class="was">An API gateway with key management</span><span class="now">Endpoints declared once, answered over REST and MCP, behind API keys you mint and revoke, with rate limits per app and per endpoint.</span></li>
-        <li><span class="was">A database access layer</span><span class="now">One model API and one query language across SQL, document and vector stores, plus HTTP APIs as data sources.</span></li>
+        <li><span class="was">A sign-in and user-management service</span><span class="now">Accounts, sign-in, password reset, second factor and roles, per app, shared across a group when you say so.</span></li>
+        <li><span class="was">An API gateway with key management</span><span class="now">Endpoints declared once, answered over REST and through the SDKs, behind API keys you mint and revoke, with rate limits per app and per endpoint.</span></li>
+        <li><span class="was">A database access layer</span><span class="now">One model API across SQL and document stores, plus HTTP APIs as data sources, and raw queries checked against what they declare.</span></li>
+        <li><span class="was">File storage, a mail queue and a job scheduler</span><span class="now">Files for each app, private or public, outgoing mail that is retried rather than lost, and jobs each app schedules for itself.</span></li>
         <li><span class="was">A secret store</span><span class="now">Secrets declared by name and handed only where they were declared. The values never sit in your code.</span></li>
-        <li><span class="was">A reverse proxy and certificate renewal</span><span class="now">Static sites, single-page apps and proxied services on one listener, with HTTPS issued and renewed for you.</span></li>
-        <li><span class="was">Deploy, update and backup scripts</span><span class="now">One install, one update command with automatic rollback, sealed backups of everything PN holds, restorable onto a fresh server.</span></li>
+        <li><span class="was">A reverse proxy and certificate renewal</span><span class="now">Static sites, single-page apps, server-rendered apps and proxied services on one listener, with HTTPS issued and renewed for you.</span></li>
+        <li><span class="was">Deploy, update and backup scripts</span><span class="now">One install, one update command that puts the old release back if the new one fails to come up, sealed backups of everything PN holds, restorable onto a fresh server.</span></li>
         <li><span class="was">Monitoring and an audit trail</span><span class="now">Health in the admin console and from the terminal, and a record of what happened, kept by Hammer where tampering shows.</span></li>
       </ul>
     </div>
@@ -589,7 +606,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
   <section class="band igc" id="igc" aria-labelledby="igc-h">
     <div class="wrap">
       <h2 id="igc-h">A whole company, built as the proving ground</h2>
-      <p class="intro">Imaginary Grocery Company is a fictional grocery and logistics business built on PN as a complete reference stack: two groups on one install, with every declaration, model, view and seed file written out. It is the stack PN is proven against before release. At release it goes live here as a working demo with test logins you can try, and its source becomes a public repository you can read, run and borrow from. The apps are not full products; they are complete enough to show what a finished stack looks like.</p>
+      <p class="intro">Imaginary Grocery Company is a fictional grocery and logistics business built on PN as a complete reference stack: two groups on one install, with every declaration, model, view and seed file written out. It is the stack PN is proven against before release. At release it goes live here as a working demo with test logins you can try. Publishing its source as a repository you can read, run and borrow from comes after the first release. The apps are not full products; they are complete enough to show what a finished stack looks like.</p>
       <div class="igc-grid">
         <figure class="vis">
           <svg class="vg igc-vg" viewBox="0 0 360 236" role="img" aria-label="Two groups on one install: Internal Operations with five employee apps sharing one login, and Customer Services with the storefront and its own customer accounts; a scoped-key arrow carries availability from stock operations to the storefront; Postgres, MongoDB and a weather API feed combined views beneath">
@@ -622,7 +639,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
           <figcaption>Two groups, seven app declarations, six combined views, one install.</figcaption>
         </figure>
         <ul class="igc-facts">
-          <li><strong>Inside the company</strong>An employee portal, stock operations, transport dispatch, a yard board and HR admin. One employee sign-in across all of them, with a different role in each app and a separate session per app.</li>
+          <li><strong>Inside the company</strong>An employee portal, stock operations, transport dispatch, a yard board and HR admin. One employee account across all of them, with a different role in each app, and each app keeping its own sign-in.</li>
           <li><strong>Facing the public</strong>A customer storefront in its own group with its own customer accounts: catalog, availability, cart, checkout, orders. An employee who shops there is a customer there, nothing more.</li>
           <li><strong>Data from three places</strong>Rows in Postgres, documents in MongoDB and a live weather API, combined into dashboards and boards for the portal, the stock desk, dispatch, the yard and the storefront.</li>
           <li><strong>Across the line</strong>The storefront learns what is in stock through an API that stock operations exposes behind a scoped API key. The two groups never share a database.</li>
@@ -640,7 +657,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
       <div class="who-grid">
         <article>
           <h3>The box in the closet</h3>
-          <p>A home lab, NAS or office server running several tools, on one machine or across your own network. One sign-in for all of them, each tool kept apart from the rest, encrypted connections with your own certificate, updates that roll themselves back, and a backup you can carry to the next box.</p>
+          <p>A Linux home lab or office server running several tools, on one machine or across your own network. One sign-in for all of them, each tool kept apart from the rest, encrypted connections with your own certificate, updates that put themselves back if they fail, and a backup you can carry to the next box.</p>
         </article>
         <article>
           <h3>The organisation</h3>
@@ -648,7 +665,7 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
         </article>
         <article>
           <h3>The developer with an API</h3>
-          <p>Four commands from app to endpoint to key. The endpoint answers over REST, through the TypeScript or Python SDK, and as a tool AI assistants can call over MCP, with every error carrying a code the caller can act on.</p>
+          <p>Four commands from API to endpoint to deploy to key. The endpoint answers over REST and through the TypeScript or Python SDK, its code can use the packages you declare, and every error carries a code the caller can act on. Already run an MCP server? Put it behind PN's proxy and let it use PN through the SDK.</p>
         </article>
       </div>
     </div>
@@ -658,31 +675,46 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
   <section class="band who roadmap" id="roadmap" aria-labelledby="roadmap-h">
     <div class="wrap">
       <h2 id="roadmap-h">After the first release</h2>
-      <p class="intro">The first release is the foundation. This is where it goes next, planned in the open and without dates.</p>
+      <p class="intro">The first release is the foundation. Much of what comes next is already built and is being finished; the rest is planned. No dates: each addition arrives when it works the whole way through, and the order follows what people actually need.</p>
       <div class="who-grid">
         <article>
-          <h3>In the updates that follow</h3>
+          <h3>Built, being finished</h3>
           <ul>
-            <li>A certificate authority PN runs for your own network</li>
+            <li>NodusQL: one text query language that PN translates for every supported store</li>
+            <li>More kinds of federated read, and saved queries you can reuse</li>
+            <li>Redis as a data source, and vector search with Qdrant</li>
+            <li>GitHub and Google sign-in</li>
+            <li>Astro server helpers</li>
+            <li>A small set of built-in text, formatting and cryptographic helpers</li>
+          </ul>
+        </article>
+        <article>
+          <h3>In the updates after that</h3>
+          <ul>
+            <li>Named SQL statements with bound values that only return each caller's own rows</li>
+            <li>WebSocket connections for apps behind PN</li>
+            <li>PN's own MCP support, once it is proven against real clients; until then, run your own MCP server behind PN's proxy</li>
+            <li>Sharing a specific private file or secret between two apps, with permission you can revoke</li>
+            <li>Certificates verified through DNS, including wildcard certificates</li>
+            <li>Fuller console screens: privacy requests, audit and alert history, and an undo window for deleted apps</li>
             <li>Public sites and network-only apps on the same install</li>
             <li>Installing and updating machines with no internet connection</li>
-            <li>Native macOS hosting</li>
-            <li>Transactions across several writes to one database</li>
-            <li>Rate limits per key and per role, and usage metering</li>
-            <li>Fuller admin screens: audit history, alert history, and an undo window for deleted apps</li>
-            <li>One-click installs with hosting providers</li>
+            <li>More starters, generated API descriptions, and endpoints written in TypeScript</li>
+            <li>The example company's source as a public repository, and more public examples</li>
           </ul>
         </article>
         <article>
           <h3>Further ahead</h3>
           <ul>
+            <li>Extensions from other developers, signed and reviewed, and a marketplace to find them</li>
+            <li>Transactions within one database, and writes across several data stores</li>
+            <li>A certificate authority PN runs for your own network</li>
+            <li>Rate limits per role, and usage metering</li>
+            <li>One-click installs with hosting providers</li>
             <li>Selected core components and Hammer rewritten in Rust, where it measurably helps</li>
-            <li>Hammer separated from PN by the operating system, not only by process</li>
             <li>Horizontal scale-out: capabilities and apps sharded across several servers on one network</li>
             <li>Multi-region federation: independent PN instances in different regions working together as one system</li>
-            <li>Signed, reviewed extensions from other developers</li>
-            <li>Writes and transactions across several data stores</li>
-            <li>More platforms: more Linux distributions, and a look at native Windows</li>
+            <li>More platforms: more Linux distributions, native macOS, and a look at native Windows</li>
           </ul>
         </article>
         <article>

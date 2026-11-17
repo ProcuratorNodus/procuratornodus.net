@@ -282,6 +282,7 @@ footer a{color:var(--text);display:inline-block;padding:10px 0}
   .hammer-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
   .swap li{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:baseline}
   .who-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+  .roadmap .who-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px;align-items:start}
   .igc-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px}
 }
 @media (min-width:64rem){
