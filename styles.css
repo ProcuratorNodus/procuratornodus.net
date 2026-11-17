@@ -189,7 +189,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 /* ── bands: errors · hammer · replaces · who ── */
 .band{padding:72px 0;border-top:1px solid var(--border)}
 .band p{color:var(--muted);max-width:36rem;margin:0 0 14px;line-height:1.6}
-.band .intro{max-width:40rem}
+.band .intro{max-width:40rem;margin-bottom:40px}
 .errors-grid{display:grid;gap:28px;align-items:start}
 .band .lead{font-size:clamp(1.2rem,2.6vw,1.45rem);font-weight:700;line-height:1.3;letter-spacing:-.015em;color:var(--text);margin:0 0 14px;text-wrap:balance}
 .hammer{background:var(--elev)}
@@ -223,8 +223,26 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .who-grid article{border-left:3px solid var(--accent);padding-left:18px}
 .who-grid h3{margin:0 0 8px;font-size:1.25rem;letter-spacing:-.015em;line-height:1.2}
 .who-grid p{margin:0;max-width:none}
-.who-grid ul{margin:0;padding-left:1.1em}
-.who-grid li{margin:.35em 0;line-height:1.45}
+
+/* ── roadmap: three stages on one track, nearest first · then what stays ── */
+/* marker: filled = built, ring = next updates, dashed ring = further ahead;
+   the line under a marker runs solid to the next stage, then dashed */
+.stages{--rail:28px;--gap:16px;--mk:20px;list-style:none;margin:0;padding:0 0 0 var(--rail);display:grid;gap:var(--gap)}
+.stage{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px 18px 20px}
+.stage h3,.keep h3{margin:0 0 14px;font-size:clamp(1.15rem,2.4vw,1.35rem);letter-spacing:-.015em;line-height:1.2}
+.stage ul,.keep ul{list-style:none;margin:0;padding:0;display:grid}
+.stage ul{display:block;margin-bottom:-10px}
+.stage li{position:relative;padding:0 0 10px 18px;line-height:1.45;font-size:.98rem;break-inside:avoid}
+.stage li::before{content:'';position:absolute;left:2px;top:.6em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.stage::before{content:'';position:absolute;left:calc(-1 * var(--rail));top:var(--mk);width:18px;height:18px;border-radius:50%;border:3px solid var(--accent);background:var(--accent)}
+.stage.next::before{background:var(--bg)}
+.stage.later::before{border:2px dashed var(--accent);background:var(--bg)}
+.stage::after{content:'';position:absolute;left:calc(8px - var(--rail));top:calc(var(--mk) + 22px);bottom:calc(4px - var(--gap) - var(--mk));width:2px;background:var(--line)}
+.stage.next::after{background:repeating-linear-gradient(to bottom,var(--line) 0 5px,transparent 5px 10px)}
+.stage.later::after{display:none}
+.keep{margin-top:44px;padding-top:20px;border-top:2px solid var(--amber-fill)}
+.keep ul{gap:14px 32px}
+.keep li{padding-left:14px;border-left:2px solid var(--border);color:var(--text);font-weight:600;line-height:1.4}
 
 /* ── how ── */
 .how{padding:72px 0;border-top:1px solid var(--border)}
@@ -256,6 +274,12 @@ footer a{color:var(--text);display:inline-block;padding:10px 0}
 /* ── breakpoints ── */
 @media (min-width:40rem){
   .wrap{padding:0 24px}
+  .keep ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (min-width:46rem){
+  .stages{--rail:40px;--gap:20px;--mk:26px}
+  .stage{padding:22px 28px 26px}
+  .stage ul{columns:2;column-gap:40px}
 }
 @media (max-width:59.99rem){
   html:not(.js) .top-row{flex-wrap:wrap}
@@ -283,12 +307,12 @@ footer a{color:var(--text);display:inline-block;padding:10px 0}
   .hammer-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
   .swap li{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:baseline}
   .who-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
-  .roadmap .who-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px;align-items:start}
   .igc-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px}
 }
 @media (min-width:64rem){
   .codegrid{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);align-items:start}
   .codetrio{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .keep ul{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 
 /* ── reduced motion: everything is complete at rest ── */

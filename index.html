@@ -673,12 +673,13 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
   </section>
 
   <!-- ─────────────── ROADMAP ─────────────── -->
-  <section class="band who roadmap" id="roadmap" aria-labelledby="roadmap-h">
+  <section class="band roadmap" id="roadmap" aria-labelledby="roadmap-h">
     <div class="wrap">
       <h2 id="roadmap-h">After the first release</h2>
       <p class="intro">The first release is the foundation. Much of what comes next is already built and is being finished; the rest is planned. No dates: each addition arrives when it works the whole way through, and the order follows what people actually need.</p>
-      <div class="who-grid">
-        <article>
+      <!-- nearest first; the marker and the line below it show how far out each stage is -->
+      <ol class="stages">
+        <li class="stage now">
           <h3>Built, being finished</h3>
           <ul>
             <li>NodusQL: one text query language that PN translates for every supported store</li>
@@ -688,8 +689,8 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
             <li>Astro server helpers</li>
             <li>A small set of built-in text, formatting and cryptographic helpers</li>
           </ul>
-        </article>
-        <article>
+        </li>
+        <li class="stage next">
           <h3>In the updates after that</h3>
           <ul>
             <li>Named SQL statements with bound values that only return each caller's own rows</li>
@@ -703,8 +704,8 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
             <li>More starters, generated API descriptions, and endpoints written in TypeScript</li>
             <li>The example company's source as a public repository, and more public examples</li>
           </ul>
-        </article>
-        <article>
+        </li>
+        <li class="stage later">
           <h3>Further ahead</h3>
           <ul>
             <li>Extensions from other developers, signed and reviewed, and a marketplace to find them</li>
@@ -717,16 +718,16 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
             <li>Multi-region federation: independent PN instances in different regions working together as one system</li>
             <li>More platforms: more Linux distributions, native macOS, and a look at native Windows</li>
           </ul>
-        </article>
-        <article>
-          <h3>What will not change</h3>
-          <ul>
-            <li>Free and open source, under the Apache-2.0 license</li>
-            <li>No telemetry: PN never reports how you or your apps use it</li>
-            <li>Your apps and your data stay on your server</li>
-            <li>Every app kept apart from every other, by design</li>
-          </ul>
-        </article>
+        </li>
+      </ol>
+      <div class="keep">
+        <h3>What will not change</h3>
+        <ul>
+          <li>Free and open source, under the Apache-2.0 license</li>
+          <li>No telemetry: PN never reports how you or your apps use it</li>
+          <li>Your apps and your data stay on your server</li>
+          <li>Every app kept apart from every other, by design</li>
+        </ul>
       </div>
     </div>
   </section>
