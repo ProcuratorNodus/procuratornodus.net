@@ -20,7 +20,7 @@
   const menu = document.getElementById('menu');
   if (nav && menuBtn && menu) {
     menuBtn.hidden = false;
-    const wide = matchMedia('(min-width: 60rem)');
+    const wide = matchMedia('(min-width: 70rem)');
     const isOpen = () => nav.classList.contains('open');
     function setOpen(open, returnFocus) {
       nav.classList.toggle('open', open);

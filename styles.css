@@ -1,8 +1,9 @@
 /* Procurator Nodus · pre-release teaser · tokens first */
 
 :root{
+  --sy:clamp(64px,7.5vw,96px);
   --bg:#f6f7fb;--surface:#ffffff;--elev:#eef0f7;--border:#dfe3ee;--text:#0f172a;--muted:#4b5569;
-  --accent:#4338ca;--accent-2:#6366f1;--accent-fg:#ffffff;--amber:#b45309;--amber-fill:#f59e0b;--line:#b4bdf0;
+  --accent:#4338ca;--accent-2:#6366f1;--accent-fg:#ffffff;--amber:#a84d06;--amber-fill:#f59e0b;--line:#b4bdf0;
   --knot-a:#2f23a8;--knot-b:#4338ca;--knot-warm:#e07400;--still-ink:#2f23a8;--glow:rgba(67,56,202,.13);
   --term-bg:#0f0d2a;--term-fg:#e6e8f5;--term-dim:#8e93b4;--term-ok:#4ade80;--term-cy:#67e8f9;
   --code-k:#1e3a8a;--code-s:#0f766e;--code-c:#6b7280;--code-n:#b45309;--code-k2:#6d28d9;--code-f:#4338ca;
@@ -42,6 +43,7 @@ img,svg,canvas{max-width:100%}
 .skip:focus{top:12px}
 .wrap{max-width:72rem;margin:0 auto;padding:0 16px}
 h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;margin:0 0 14px;font-weight:700}
+h2,h3{text-wrap:balance}
 .intro{color:var(--muted);max-width:40rem;margin:0 0 40px;font-size:1.05rem}
 .btn{display:inline-block;padding:12px 22px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-weight:600;text-decoration:none}
 .btn:hover{filter:brightness(1.08)}
@@ -51,7 +53,8 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .small{color:var(--muted)}
 
 /* ── header ── */
-.top-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.top .top-row{padding-top:14px;padding-bottom:14px}
 .brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none}
 .brand img{width:28px;height:28px;border-radius:7px}
 .brand span{font-family:var(--brand);font-weight:700;font-size:1.05rem;letter-spacing:.02em}
@@ -104,7 +107,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .knot-note{position:absolute;left:0;right:0;bottom:-4px;margin:0;text-align:center;font-size:.85rem;color:var(--muted)}
 
 /* ── it can do that ── */
-.can{padding:72px 0 16px;border-top:1px solid var(--border)}
+.can{padding:var(--sy) 0 16px;border-top:1px solid var(--border)}
 .big{font-size:clamp(2.4rem,8vw,4.6rem);font-weight:800;letter-spacing:-.035em;line-height:1;margin:0 0 16px;font-variation-settings:'opsz' 96}
 .say h3{overflow-wrap:anywhere}
 .ledger{list-style:none;margin:0;padding:0;position:relative}
@@ -122,6 +125,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .vg .lbl{fill:var(--text);font:600 11px var(--font)}
 .vg .lbl.muted{fill:var(--muted);font-weight:500}
 .vg .lbl.tiny{font-size:10px}
+.vg .lbl.halo{paint-order:stroke;stroke:var(--bg);stroke-width:4px;stroke-linejoin:round}
 .vg .app rect{fill:var(--surface);stroke:var(--accent);stroke-width:1.5}
 .vg .app line{stroke:var(--border);stroke-width:2;stroke-linecap:round}
 .vg .walls line{stroke:var(--text);stroke-width:3;stroke-linecap:round;opacity:.22}
@@ -188,7 +192,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .code,.term{min-width:0;max-width:100%}
 
 /* ── bands: errors · hammer · replaces · who ── */
-.band{padding:72px 0;border-top:1px solid var(--border)}
+.band{padding:var(--sy) 0;border-top:1px solid var(--border)}
 .band p{color:var(--muted);max-width:36rem;margin:0 0 14px;line-height:1.6}
 .band .intro{max-width:40rem;margin-bottom:40px}
 .errors-grid{display:grid;gap:28px;align-items:start}
@@ -210,7 +214,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .swap li{display:grid;gap:4px;padding:16px 0;border-top:1px solid var(--border)}
 .swap li:last-child{border-bottom:1px solid var(--border)}
 .swap .was{color:var(--muted);font-weight:500}
-.swap .now{color:var(--text);line-height:1.5}
+.swap .now{color:var(--text);line-height:1.5;max-width:40rem}
 .vg .person.sm circle,.vg .person.sm path{stroke-width:1.5}
 .vg .keylink line{stroke:var(--amber-fill);stroke-width:1.5}
 .vg .keylink circle{fill:var(--surface);stroke:var(--amber-fill);stroke-width:1.5}
@@ -223,7 +227,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .who-grid{display:grid;gap:24px}
 .who-grid article{border-left:3px solid var(--accent);padding-left:18px}
 .who-grid h3{margin:0 0 8px;font-size:1.25rem;letter-spacing:-.015em;line-height:1.2}
-.who-grid p{margin:0;max-width:none}
+.who-grid p{margin:0;max-width:40rem}
 
 /* ── roadmap: three stages on one track, nearest first · then what stays ── */
 /* marker: filled = built, ring = next updates, dashed ring = further ahead;
@@ -246,7 +250,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .keep li{padding-left:14px;border-left:2px solid var(--border);color:var(--text);font-weight:600;line-height:1.4}
 
 /* ── how ── */
-.how{padding:72px 0;border-top:1px solid var(--border)}
+.how{padding:var(--sy) 0;border-top:1px solid var(--border)}
 .how-grid{display:grid;gap:32px}
 .how p{color:var(--muted);max-width:36rem;margin:0 0 14px;line-height:1.6}
 .how strong{color:var(--accent)}
@@ -262,7 +266,7 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 @keyframes go{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy))}}
 
 /* ── status · footer ── */
-.status{padding:64px 0 80px;border-top:1px solid var(--border)}
+.status{padding:var(--sy) 0;border-top:1px solid var(--border)}
 .badge{margin-bottom:14px}
 .status .intro{margin:0 0 14px}
 .status .kt{margin:22px 0 0}
@@ -285,20 +289,28 @@ footer a{color:var(--text);display:inline-block;padding:12px 4px;margin:-12px -4
   .stage{padding:22px 28px 26px}
   .stage ul{columns:2;column-gap:40px}
 }
-@media (max-width:59.99rem){
+@media (max-width:69.99rem){
   html:not(.js) .top-row{flex-wrap:wrap}
   .brand span{font-size:.95rem;white-space:nowrap}
   .top nav{flex-wrap:nowrap;gap:10px}
   .js .menu-btn{display:inline-flex;width:44px;padding:0;justify-content:center}
   .js .menu-btn span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  .js .menu{display:none;position:absolute;left:0;right:0;top:calc(100% + 2px);flex-direction:column;align-items:stretch;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:8px;z-index:20;box-shadow:0 14px 36px rgba(12,10,31,.16)}
-  .js .nav.open .menu{display:flex}
-  .js .menu a{display:block;padding:12px 14px;border-radius:10px;font-size:1.05rem;color:var(--text)}
-  .js .menu a:hover{background:var(--elev)}
+  .js .menu-btn ~ .menu{display:none;position:absolute;left:auto;right:16px;width:min(20rem,calc(100% - 32px));top:calc(100% - 6px);flex-direction:column;align-items:stretch;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:8px;z-index:20;box-shadow:0 14px 36px rgba(12,10,31,.16)}
+  .js .nav.open .menu-btn ~ .menu{display:flex}
+  .js .menu-btn ~ .menu a{display:block;padding:12px 14px;border-radius:10px;font-size:1.05rem;color:var(--text)}
+  .js .menu-btn ~ .menu a:hover{background:var(--elev)}
+}
+/* a short nav with no menu button (the 404 page) stays inline; on the narrowest phones the footer carries the link */
+@media (max-width:22.4rem){
+  .menu-plain{display:none}
+}
+@media (min-width:40rem) and (max-width:69.99rem){
+  .js .menu-btn ~ .menu{right:24px;width:min(20rem,calc(100% - 48px))}
 }
 @media (min-width:56rem){
   .hero{padding:8px 0 56px}
-  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center;min-height:calc(100vh - 84px)}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center;min-height:calc(100vh - 72px)}
+  .statement{font-size:clamp(2.2rem,6.2vw,4.8rem)}
   .knot{order:0;height:clamp(480px,62vh,680px)}
   .ledger{padding-left:40px}
   .ledger::before{content:'';position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
@@ -307,7 +319,7 @@ footer a{color:var(--text);display:inline-block;padding:12px 4px;margin:-12px -4
   .row.wide{grid-template-columns:1fr;align-items:start}
   .how-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:center}
   .codepair{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .errors-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px}
+  .errors-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:48px}
   .hammer-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
   .swap li{grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:32px;align-items:baseline}
   .who-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
@@ -326,7 +338,7 @@ footer a{color:var(--text);display:inline-block;padding:12px 4px;margin:-12px -4
   .diagram .pulse{display:none}
   .vg .fan path.on,.vg .merge path.on,.cur.on{animation:none}
 }
-.directive{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .7rem;margin:0 0 22px;font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:700;line-height:1.3;color:var(--text);text-wrap:balance}
+.band .directive{max-width:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:.3rem .7rem;margin:0 0 22px;font-size:clamp(1.15rem,2.6vw,1.45rem);font-weight:700;line-height:1.3;color:var(--text);text-wrap:balance}
 .directive span{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
 .motto{max-width:46rem;margin:0 auto 26px;padding-bottom:24px;border-bottom:1px solid var(--border);text-align:center}
 .motto::before{content:"";display:block;width:44px;height:2px;margin:0 auto 16px;border-radius:2px;background:var(--amber)}
