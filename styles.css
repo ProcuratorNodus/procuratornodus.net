@@ -45,7 +45,8 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 .intro{color:var(--muted);max-width:40rem;margin:0 0 40px;font-size:1.05rem}
 .btn{display:inline-block;padding:12px 22px;border-radius:999px;background:var(--accent);color:var(--accent-fg);font-weight:600;text-decoration:none}
 .btn:hover{filter:brightness(1.08)}
-.pill{color:var(--amber);font-weight:600;font-size:.95rem}
+/* one pre-release label, used in the hero and above "Where it stands" */
+.pill,.badge{display:inline-flex;align-items:center;min-height:30px;padding:3px 12px;border:1px solid currentColor;border-radius:999px;color:var(--amber);font:600 .88rem/1.2 var(--font);letter-spacing:.01em}
 .actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .small{color:var(--muted)}
 
@@ -262,13 +263,16 @@ h2{font-size:clamp(1.8rem,4.5vw,2.6rem);letter-spacing:-.025em;line-height:1.08;
 
 /* ── status · footer ── */
 .status{padding:64px 0 80px;border-top:1px solid var(--border)}
-.badge{display:inline-block;font-family:var(--mono);font-size:.9rem;color:var(--amber);border:1px solid currentColor;border-radius:999px;padding:3px 12px;margin-bottom:12px}
+.badge{margin-bottom:14px}
 .status .intro{margin:0 0 14px}
 .status .kt{margin:22px 0 0}
 .status .kt a{color:var(--text);text-decoration:underline;text-underline-offset:3px}
-footer{border-top:1px solid var(--border);padding:28px 0 44px;color:var(--muted);font-size:.92rem}
-.foot{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
-footer a{color:var(--text);display:inline-block;padding:10px 0}
+/* the footer is one centered column: motto, then the two small lines under it */
+footer{border-top:1px solid var(--border);padding:40px 0 36px;color:var(--muted);font-size:.92rem;text-align:center}
+.foot{display:grid;justify-items:center;gap:4px}
+.foot p{margin:0;max-width:40rem;line-height:1.6;text-wrap:balance}
+.nw{white-space:nowrap}
+footer a{color:var(--text);display:inline-block;padding:12px 4px;margin:-12px -4px}
 .notfound{min-height:70vh;display:grid;align-content:center;gap:16px}
 
 /* ── breakpoints ── */
