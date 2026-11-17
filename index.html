@@ -517,9 +517,10 @@ Setup complete. Run <span class="cy">pn start</span> to boot.
     <div class="wrap errors-grid">
       <div>
         <h2 id="errors-h">Every error has a code, and every code has a fix</h2>
-        <p>Every code is namespaced by where it comes from, and stable. See one in a log or an API response and run one command: it tells you what caused it, how to fix it, its category and HTTP status, and a hint. The same codes come back through the SDKs, so an app can handle them by name instead of parsing a message. There is <code>pn errors find</code> for when all you have is a phrase.</p>
+        <p class="lead">There are 800+ error codes, and counting.</p>
+        <p>Each one starts with the part of PN that raised it, such as <code>SERVE</code> or <code>DATA</code>, and keeps its meaning. See one in a log or an API response and one command tells you what caused it, how to fix it, its category and HTTP status, and a hint. The SDKs return the same codes, so an app can handle an error by name instead of parsing its message. When all you have is a phrase from the message, <code>pn errors find</code> turns up the code.</p>
       </div>
-      <figure class="term wrap wide">
+      <figure class="term wraps wide">
         <figcaption><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>pn errors</span></figcaption>
 <pre><code><span class="pr">$</span> pn errors lookup SERVE_028
 <b>SERVE_028</b>   <span class="dim">serve • config</span>
